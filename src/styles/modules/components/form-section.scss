@@ -1,0 +1,18 @@
+.form-section {
+  border-radius: $border-radius-big;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  overflow: hidden;
+
+  &__row {
+    flex-grow: 1;
+    background-color: $snooow;
+
+    &_bisected {
+      display: flex;
+      gap: 1px;
+      background-color: transparent;
+    }
+  }
+}

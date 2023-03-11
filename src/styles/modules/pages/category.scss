@@ -1,0 +1,50 @@
+.category {
+  &__back {
+    margin: auto;
+    cursor: pointer;
+  }
+
+  &__more-tap {
+    margin-left: auto;
+  }
+
+  &__more {
+    opacity: 0.25;
+    padding: 14px 16px;
+  }
+
+  &__description {
+    margin-right: 72px;
+    color: $aaash;
+    @include font-subtitle;
+  }
+
+  &__category {
+    margin-bottom: 12px;
+  }
+
+  &__toggle-tap {
+    margin: 0 auto;
+  }
+
+  &__category-title {
+    height: 44px;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    @include font-title;
+  }
+
+  &__category-count {
+    margin-left: auto;
+    margin-right: 8px;
+    align-self: center;
+    color: $aaash;
+    @include font-title;
+  }
+
+  &__card-icon {
+    @include card-icon;
+  }
+}

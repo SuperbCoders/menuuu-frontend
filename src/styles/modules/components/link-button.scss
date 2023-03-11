@@ -1,0 +1,53 @@
+.link-button {
+  $padding: 4px;
+  padding: $padding;
+  width: 100%;
+  border-radius: $border-radius-extra-small;
+  color: $coaaal;
+  text-decoration: none;
+  @include font-title;
+  cursor: pointer;
+  transition: background-color $transition-duration linear;
+
+  &:after {
+    content: '';
+    margin-top: $padding/2;
+    height: 2px;
+    width: 100%;
+    background-color: $coaaal;
+    display: block;
+  }
+
+  &:hover, &:focus {
+    &:not(.link-button_disabled) {
+      background-color: $aaash-25;
+    }
+  }
+
+  &_disabled {
+    color: $aaash-50;
+    cursor: not-allowed;
+
+    &:after {
+      background-color: $aaash-25;
+    }
+  }
+
+  &_size-display {
+    @include font-display;
+
+    &:after {
+      margin-top: $padding;
+      height: 4px;
+    }
+  }
+
+  &_size-subtitle {
+    @include font-subtitle;
+
+    &:after {
+      margin-top: $padding / 4;
+      height: 1.5px;
+    }
+  }
+}

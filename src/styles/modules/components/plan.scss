@@ -1,0 +1,99 @@
+.plan {
+  padding: 14px 14px 8px;
+  border: 2px solid transparent;
+  flex-shrink: 0;
+  flex-basis: 192px;
+  border-radius: $border-radius-big;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  &_pro {
+    background-color: $fruuuit;
+    border-color: $fruuuit;
+  }
+
+  &_life {
+    background-color: $snooow;
+    border-color: $snooow;
+  }
+
+  &_selected {
+    border-color: $coaaal;
+  }
+
+  &_disabled {
+    color: $aaash;
+  }
+
+  &__title {
+    @include font-body-m;
+  }
+
+  &__price-block {
+    display: flex;
+  }
+
+  &__currency {
+    margin-top: 6px;
+    margin-right: 1px;
+    @include font-title;
+  }
+
+  &__price {
+    margin-right: 4px;
+    @include font-display;
+  }
+
+  &__period {
+    align-self: end;
+    @include font-subtitle;
+  }
+
+  &__badges {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__badge-block {
+    display: flex;
+  }
+
+  &__tick {
+    margin-right: 8px;
+    @include font-subtitle;
+  }
+
+  &__badge {
+    @include font-subtitle;
+  }
+
+  &__footer {
+    margin-top: auto;
+  }
+
+  &__hint {
+    margin-bottom: 8px;
+    text-align: center;
+    color: $coaaal;
+  }
+
+  &__date {
+    @include font-body-m;
+  }
+
+  &__select-tap {
+    &_pro {
+      color: $fruuuit;
+    }
+
+    &_life {
+      color: $snooow;
+    }
+  }
+
+  &__select {
+    width: 100%;
+  }
+}

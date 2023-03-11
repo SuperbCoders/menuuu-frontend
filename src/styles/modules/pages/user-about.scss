@@ -1,0 +1,68 @@
+.user-about {
+  padding: 24px 12px;
+  background-color: $tableee;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__main {
+    border-radius: $border-radius-big;
+    background-color: $snooow;
+  }
+
+  &__background {
+    height: 164px;
+    overflow: hidden;
+  }
+
+  &__background-image {
+    width: 100%;
+  }
+
+  &__main-info {
+    padding: 24px 24px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__logo {
+    position: relative;
+    margin-top: -74px;
+    margin-bottom: 14px;
+    width: 100px;
+    height: 100px;
+    border: 2px solid $snooow;
+    border-radius: 50%;
+    background-color: $basic;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &_no-background {
+      margin-top: 0;
+    }
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    @include font-title;
+  }
+
+  &__description {
+    margin-bottom: 10px;
+    color: $aaash;
+    @include font-caption;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 4px;
+  }
+
+  &__social {
+    width: 24px;
+    height: 24px;
+  }
+}

@@ -1,0 +1,100 @@
+.user-menu {
+  padding: 24px $grid-padding;
+  background-color: $snooow;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__categories {
+    margin-bottom: 16px;
+    display: flex;
+    gap: 8px;
+    overflow: auto;
+    @include skip-first-column;
+  }
+
+  &__category {
+
+  }
+
+  &__title {
+    margin-bottom: 12px;
+    padding-bottom: 24px;
+    @include skip-first-column;
+    @include divider();
+    @include font-title;
+  }
+
+  &__subtitle {
+    margin-bottom: 24px;
+    @include skip-first-column;
+    @include font-subtitle;
+  }
+
+  &__course {
+    margin-bottom: 24px;
+    cursor: pointer;
+  }
+
+  &__course-photo-block {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &__course-info {
+    padding-right: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__course-title {
+
+  }
+
+  &__course-description {
+    color: $aaash;
+  }
+
+  &__course-badges {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__course-price {
+    margin-top: 4px;
+    @include font-body-m;
+  }
+
+  &__footer {
+    position: sticky;
+    bottom: 0;
+    padding: 12px;
+    background-color: $snooow;
+    align-items: center;
+    @include divider(top);
+  }
+
+  &__logo-block {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &__footer-title {
+    margin-bottom: 4px;
+    @include font-body-m;
+  }
+
+  &__footer-description {
+    color: $aaash;
+    @include font-caption;
+  }
+
+  &__footer-about {
+    margin-left: auto;
+  }
+}

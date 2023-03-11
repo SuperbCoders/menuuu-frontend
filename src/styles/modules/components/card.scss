@@ -1,0 +1,73 @@
+.card {
+  $block: &;
+  position: relative;
+  margin-top: -52px;
+  padding: $grid-padding $grid-padding 80px;
+  border-radius: $border-radius-large $border-radius-large 0 0;
+  background-color: $tableee;
+  display: flex;
+  flex-direction: column;
+
+  &:first-child {
+    margin-top: 0;
+    padding-top: 24px;
+    flex-grow: 1;
+  }
+
+  &:first-child:last-child {
+    padding-bottom: 46px;
+  }
+
+  &_disabled {
+    color: $aaash-50;
+  }
+
+  &_clickable:not(&_disabled) {
+    cursor: pointer;
+  }
+
+  &_fruuuit {
+    background-color: $fruuuit;
+  }
+
+  &_snooow {
+    background-color: $snooow;
+
+    &#{$block}_disabled {
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: $border-radius-large $border-radius-large 0 0;
+        height: 36px;
+        width: 100%;
+        border: 1px solid $tableee;
+        border-bottom: 0;
+      }
+    }
+  }
+
+  &_coaaal {
+    background-color: $coaaal;
+    color: $snooow;
+
+    &#{$block}_disabled {
+      background-color: $aaash-25;
+      color: $aaash-50;
+    }
+  }
+
+  &__header {
+    margin-bottom: 24px;
+
+    &_empty {
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    margin: auto 0;
+    @include font-title;
+  }
+}

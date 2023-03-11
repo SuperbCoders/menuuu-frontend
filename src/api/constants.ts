@@ -1,0 +1,1 @@
+export const API_URL: string = `${process.env.REACT_APP_BACKEND_URL}/api/v1`;

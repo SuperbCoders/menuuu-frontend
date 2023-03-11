@@ -1,0 +1,13 @@
+@import "styles/helpers/index.scss";
+@import "styles/modules/index.scss";
+
+body {
+  margin: 0;
+  font-family: $inter-tight, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  @include font-body;
+  color: $coaaal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

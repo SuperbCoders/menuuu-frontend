@@ -1,0 +1,93 @@
+.input {
+  margin-top: auto;
+  padding: 0;
+  border: 0;
+  width: 100%;
+  @include font-subtitle;
+
+  @include placeholder {
+    color: $aaash;
+  }
+
+  &_invalid {
+    color: $chileee;
+  }
+
+  &__wrapper {
+    width: 100%;
+  }
+
+  &__block {
+    display: flex;
+    position: relative;
+    padding: 14px 22px 12px;
+    border: 2px solid transparent;
+    min-height: 68px;
+    border-radius: 24px;
+    color: $coaaal;
+    background-color: $snooow;
+    cursor: pointer;
+
+    &_focused, &:hover {
+      border-color: $aaash;
+    }
+
+    &_readonly {
+      cursor: auto;
+      border-color: transparent;
+
+      &:hover {
+        border-color: transparent;
+      }
+    }
+
+    &_straight-border-top {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+    &_straight-border-bottom {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &_invalid {
+      outline-color: $chileee;
+      color: $chileee;
+
+      &:focus, &:hover {
+        outline-color: $chileee;
+      }
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__required {
+
+  }
+
+  &__placeholder {
+    position: absolute;
+    top: 22px;
+    left: 24px;
+    white-space: nowrap;
+    color: $aaash;
+    pointer-events: none;
+    transition: top $transition-duration linear,
+    font-size $transition-duration linear,
+    line-height $transition-duration linear;
+    @include font-subtitle;
+
+    &_minified {
+      top: 16px;
+      @include font-caption;
+    }
+
+    &_invalid {
+      color: $chileee;
+    }
+  }
+}

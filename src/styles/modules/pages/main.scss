@@ -1,0 +1,25 @@
+.main {
+  &__description {
+    margin-right: 72px;
+    @include font-subtitle;
+  }
+
+  &__arrow-down {
+    display: block;
+    margin-top: 8px;
+  }
+
+  &__step {
+    border: 1.5px solid $coaaal;
+    border-radius: 50%;
+    @include card-icon;
+    @include font-subtitle;
+  }
+
+  &__profile-description {
+    margin-right: 72px;
+    margin-bottom: 24px;
+    color: $aaash;
+    @include font-subtitle;
+  }
+}

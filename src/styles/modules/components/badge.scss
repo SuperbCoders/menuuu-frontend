@@ -1,0 +1,7 @@
+.badge {
+  padding: 4px 8px;
+  border-radius: $border-radius-small;
+  background-color: $aaash;
+  color: $snooow;
+  @include font-caption;
+}

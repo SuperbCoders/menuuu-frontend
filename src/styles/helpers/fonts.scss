@@ -1,0 +1,68 @@
+$inter-tight-path: '/assets/fonts/InterTight/';
+$inter-tight: 'Inter Tight';
+
+@font-face {
+  font-family: $inter-tight;
+  src: url('#{$inter-tight-path}InterTight-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $inter-tight;
+  src: url('#{$inter-tight-path}InterTight-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $inter-tight;
+  src: url('#{$inter-tight-path}InterTight-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* KERNING PAIRS, OPEN DIGITS, MONOSPACE NUMBERS */
+$default-font-feature-settings: 'tnum' on, 'lnum' on, 'ss01' on;
+
+@mixin font-display {
+  font-size: 64px;
+  line-height: 64px;
+  font-weight: 300;
+  font-feature-settings: $default-font-feature-settings;
+}
+
+@mixin font-title {
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: 400;
+  font-feature-settings: $default-font-feature-settings;
+}
+
+@mixin font-subtitle {
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 400;
+  font-feature-settings: $default-font-feature-settings;
+}
+
+@mixin font-body {
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 400;
+  font-feature-settings: $default-font-feature-settings;
+}
+
+@mixin font-body-m {
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 600;
+  font-feature-settings: $default-font-feature-settings;
+}
+
+@mixin font-caption {
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 400;
+  font-feature-settings: $default-font-feature-settings;
+}

@@ -1,0 +1,30 @@
+@import "./colors";
+
+@mixin divider($position: bottom) {
+  @if $position == bottom {
+    border-bottom: $divider;
+  } @else if $position == top {
+    border-top: $divider;
+  } @else if $position == left {
+    border-left: $divider;
+  } @else {
+    border-right: $divider;
+  }
+}
+
+@mixin skip-first-column {
+  margin-left: $first-column-width;
+}
+
+@mixin card-icon {
+  margin: 0 auto;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &_disabled {
+    border-color: $aaash-50;
+  }
+}

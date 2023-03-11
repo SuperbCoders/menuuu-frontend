@@ -1,0 +1,128 @@
+.header {
+  height: $header-height;
+  background-color: $snooow;
+  transition: background-color $transition-duration-average linear;
+
+  &_expanded {
+    background-color: $coaaal;
+  }
+
+  &__grid {
+    padding: 0 $grid-padding;
+    height: 100%;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 124px;
+    transition: color $transition-duration-average linear;
+
+    &_active {
+      color: $snooow;
+    }
+  }
+
+  &__burger {
+    position: relative;
+    margin-left: auto;
+    padding: 16px 4px;
+    border: 0;
+    height: 44px;
+    width: 44px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    cursor: pointer;
+  }
+
+  &__burger-line {
+    position: absolute;
+    left: 4px;
+    top: 16px;
+    width: calc(100% - 8px);
+    height: 2px;
+    flex-shrink: 0;
+    border-bottom: 2px solid $coaaal;
+    display: block;
+    transition: border-color $transition-duration-average linear,
+    top $transition-duration-average linear,
+    left $transition-duration-average linear,
+    width $transition-duration-average linear,
+    transform $transition-duration-average linear;
+
+    &:last-child {
+      top: 26px;
+    }
+
+    &_active {
+      border-color: $snooow;
+      &:first-child {
+        top: 21px;
+        left: 1px;
+        width: 42px;
+        transform: rotateZ(45deg);
+      }
+
+      &:last-child {
+        top: 21px;
+        left: 1px;
+        width: 42px;
+        transform: rotateZ(-45deg);
+      }
+    }
+  }
+
+  &__menu-wrapper {
+    position: absolute;
+    z-index: 1;
+    top: $header-height;
+    width: 100%;
+    height: $container-height;
+    background-color: $coaaal;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility $transition-duration-average 0s linear,
+    opacity $transition-duration-average linear;
+
+    &_visible {
+      visibility: visible;
+      opacity: 1;
+      transition: visibility 0s linear,
+      opacity $transition-duration-average linear;
+    }
+  }
+
+  &__menu-grid {
+    height: 100%;
+    padding: 52px 12px;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__navigation {
+    margin-top: auto;
+    margin-bottom: 76px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  &__navigation-link {
+    color: $snooow;
+
+    &:after {
+      background-color: $snooow;
+    }
+
+    &_small {
+      &:after {
+        width: calc(100% - 8px);
+      }
+    }
+  }
+}

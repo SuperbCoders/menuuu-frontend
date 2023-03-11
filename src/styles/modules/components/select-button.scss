@@ -1,0 +1,30 @@
+.select-button {
+  $block: &;
+  padding: 4px 12px 7px 12px;
+  border: 1px solid $aaash-50;
+  height: 32px;
+  border-radius: $border-radius-medium;
+  color: $aaash;
+  @include font-subtitle;
+  cursor: pointer;
+
+  &_selected {
+    width: 100%;
+    border-radius: $border-radius-extra-large;
+    background-color: $coaaal;
+    border-color: $coaaal;
+    color: $snooow;
+  }
+
+  &_plan {
+    border: 2px solid $coaaal;
+    height: 34px;
+    color: $coaaal;
+    background-color: transparent;
+
+    &#{$block}_selected {
+      color: inherit;
+      background-color: $coaaal;
+    }
+  }
+}

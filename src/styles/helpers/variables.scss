@@ -1,0 +1,16 @@
+$border-radius-extra-large: 40px;
+$border-radius-large: 36px;
+$border-radius-big: 24px;
+$border-radius-medium: 16px;
+$border-radius-small: 14px;
+$border-radius-extra-small: 4px;
+$transition-duration: 0.1s;
+$transition-duration-average: 0.25s;
+$grid-padding: 12px;
+$first-column-width: 64px;
+$second-column-width: 168px;
+$third-column-width: 104px;
+$divider: 1px solid $aaash-25;
+
+$header-height: 64px;
+$container-height: calc(100vh - #{$header-height});

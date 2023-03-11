@@ -1,0 +1,42 @@
+.plans {
+  padding: 24px $grid-padding;
+  height: $container-height;
+  border-radius: $border-radius-large $border-radius-large 0 0;
+  background-color: $tableee;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  &__title {
+    margin-bottom: 24px;
+    @include font-title;
+  }
+
+  &__description {
+    color: $aaash;
+    @include font-subtitle;
+  }
+
+  &__list {
+    display: flex;
+    gap: 8px;
+    overflow: auto;
+  }
+
+  &__footer-grid {
+    margin-top: auto;
+  }
+
+  &__footer {
+    width: 100%;
+  }
+
+  &__payment {
+    margin-bottom: 24px;
+    @include font-subtitle;
+  }
+
+  &__payment-title {
+    color: $aaash;
+  }
+}
