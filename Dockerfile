@@ -1,13 +1,9 @@
 FROM node:16-alpine as builder
+ENV REACT_APP_BACKEND_URL=http://62.84.114.151
+ENV GENERATE_SOURCEMAP=false
 WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm install
 COPY . .
+RUN npm install && npm install -g serve
 RUN npm run build
+CMD [ "serve", "-s", "build" ]
 
-FROM nginx:1.23.3-alpine
-COPY default.conf /etc/nginx/conf.d/default.conf
-WORKDIR /usr/share/nginx/html
-RUN rm -rf ./*
-COPY --from=builder /app/build .
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
