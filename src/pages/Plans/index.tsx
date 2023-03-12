@@ -91,13 +91,16 @@ function Plans() {
                                         {!upgradePrice && t('PAYMENT_METHODS')}
                                     </div>
                                 )}
-                                <Button disabled={!planType}>
-                                    {t('CONTINUE_BUTTON')}
-                                </Button>
                             </div>
                         ),
                     ]}
                 />
+                <Button
+                    disabled={!planType}
+                    tapClassName={GetModifiers(componentClass, 'continue')}
+                >
+                    {t('CONTINUE_BUTTON')}
+                </Button>
             </div>
         </>
     );

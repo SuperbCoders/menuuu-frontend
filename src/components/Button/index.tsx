@@ -1,7 +1,7 @@
 import React, {MouseEvent, ReactNode} from 'react';
 import {GetModifiers} from "../../utils/classNames";
 import TapTarget from "../TapTarget";
-import {BUTTON_TYPE} from "./constants";
+import {BUTTON_OPACITY, BUTTON_TYPE} from "./constants";
 import {COLOR_NAME} from "../../constants/colors";
 
 const componentClass = 'button';
@@ -12,6 +12,7 @@ export interface ButtonProps {
     width?: string;
     disabled?: boolean;
     type?: BUTTON_TYPE;
+    opacity?: BUTTON_OPACITY;
     colorTheme?: COLOR_NAME;
     children?: ReactNode;
     onClick?: (event: MouseEvent<HTMLInputElement>) => void;
@@ -24,6 +25,7 @@ function Button(props: ButtonProps) {
         width = '',
         disabled,
         type,
+        opacity,
         colorTheme,
         children,
         onClick,
@@ -45,6 +47,10 @@ function Button(props: ButtonProps) {
                     {
                         condition: type,
                         value: type,
+                    },
+                    {
+                        condition: opacity,
+                        value: opacity,
                     },
                     {
                         condition: colorTheme,

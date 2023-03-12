@@ -1,3 +1,6 @@
+$desktop-horizontal-padding: 80px;
+$mobile-width: 1024px;
+
 $border-radius-extra-large: 40px;
 $border-radius-large: 36px;
 $border-radius-big: 24px;
@@ -14,3 +17,6 @@ $divider: 1px solid $aaash-25;
 
 $header-height: 64px;
 $container-height: calc(100vh - #{$header-height});
+$desktop-header-margin-bottom: 40px;
+$desktop-container-height: calc(100vh - #{$header-height + $desktop-header-margin-bottom});
+$desktop-container-padding: 0 $desktop-horizontal-padding;

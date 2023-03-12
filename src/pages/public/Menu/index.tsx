@@ -1,14 +1,14 @@
 import React, {MouseEvent, useState} from 'react';
 import {useNavigate} from "react-router-dom";
-import {GetModifiers} from "../../utils/classNames";
-import SelectButton from "../../components/SelectButton";
-import Grid from "../../components/Grid";
-import Photo from "../UserCourse/photo.png";
-import Badge from "../../components/Badge";
-import Button from "../../components/Button";
-import {BUTTON_TYPE} from "../../components/Button/constants";
-import {ROUTE_ABOUT} from "../../constants/routes";
 import {useTranslation} from "react-i18next";
+import {GetModifiers} from "../../../utils/classNames";
+import SelectButton from "../../../components/SelectButton";
+import Grid from "../../../components/Grid";
+import Photo from "../Course/photo.png";
+import Badge from "../../../components/Badge";
+import Button from "../../../components/Button";
+import {BUTTON_OPACITY, BUTTON_TYPE} from "../../../components/Button/constants";
+import {GetPublicCourseRoute, GetPublicRoute, ROUTE_ABOUT} from "../../../constants/routes";
 
 enum CATEGORY {
     EARLIER = 'earlier',
@@ -60,10 +60,10 @@ const Courses = [
     },
 ]
 
-const componentClass = 'user-menu';
+const componentClass = 'public-menu';
 const keyPrefix = 'PUBLIC_MENU';
 
-function UserMenu() {
+function PublicMenu() {
     const {t} = useTranslation([], {keyPrefix});
     const navigate = useNavigate();
     const [categories, setCategories] = useState<CATEGORY[]>([]);
@@ -76,8 +76,8 @@ function UserMenu() {
     }
 
     return (
-        <>
-            <div className={componentClass}>
+        <div className={componentClass}>
+            <div className={GetModifiers(componentClass, 'main')}>
                 <div className={GetModifiers(componentClass, 'categories')}>
                     {Categories.map((item) => {
                         const {
@@ -111,7 +111,7 @@ function UserMenu() {
                                 key={course.id}
                                 className={GetModifiers(componentClass, 'course')}
                                 onClick={() => {
-                                    navigate('/user/351/courses/1')
+                                    navigate(GetPublicCourseRoute(351, 1))
                                 }}
                             >
                                 <Grid
@@ -187,9 +187,10 @@ function UserMenu() {
                     (
                         <Button
                             type={BUTTON_TYPE.SMALL}
+                            opacity={BUTTON_OPACITY.HALF}
                             tapClassName={GetModifiers(componentClass, 'footer-about')}
                             onClick={() => {
-                                navigate(`/user/351/${ROUTE_ABOUT}`)
+                                navigate(`${GetPublicRoute(351)}/${ROUTE_ABOUT}`)
                             }}
                         >
                             {t('ABOUT_BUTTON')}
@@ -197,8 +198,8 @@ function UserMenu() {
                     ),
                 ]}
             />
-        </>
+        </div>
     );
 }
 
-export default UserMenu;
+export default PublicMenu;

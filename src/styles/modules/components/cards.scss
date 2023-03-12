@@ -4,4 +4,9 @@
   background-color: $tableee;
   display: flex;
   flex-direction: column;
+
+  @include media-desktop {
+    margin: $desktop-container-padding;
+    height: $desktop-container-height;
+  }
 }

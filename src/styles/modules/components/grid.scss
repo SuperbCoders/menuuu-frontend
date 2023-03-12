@@ -11,6 +11,7 @@
 
     &_2 {
       flex-basis: $second-column-width;
+      flex-grow: 1;
     }
 
     &_3 {
@@ -19,6 +20,7 @@
 
     &_2-3 {
       flex-basis: $second-column-width + $third-column-width;
+      flex-grow: 1;
     }
   }
 }

@@ -1,11 +1,16 @@
 .plans {
-  padding: 24px $grid-padding;
+  padding: 24px $grid-padding 44px;
   height: $container-height;
   border-radius: $border-radius-large $border-radius-large 0 0;
   background-color: $tableee;
   display: flex;
   flex-direction: column;
   gap: 24px;
+
+  @include media-desktop {
+    padding: 24px $desktop-horizontal-padding 44px;
+    height: $desktop-container-height;
+  }
 
   &__title {
     margin-bottom: 24px;
@@ -34,9 +39,19 @@
   &__payment {
     margin-bottom: 24px;
     @include font-subtitle;
+
+    @include media-desktop {
+      margin-bottom: 0;
+    }
   }
 
   &__payment-title {
     color: $aaash;
+  }
+
+  &__continue {
+    @include media-desktop {
+      margin: 0 $first-column-width;
+    }
   }
 }

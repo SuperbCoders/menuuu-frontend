@@ -1,9 +1,18 @@
-.user-menu {
-  padding: 24px $grid-padding;
+.public-menu {
   background-color: $snooow;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  min-height: 100vh;
+
+  &__main {
+    padding: 10px $grid-padding 0 $grid-padding;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @include public-desktop-container;
+  }
 
   &__categories {
     margin-bottom: 16px;
@@ -71,10 +80,13 @@
   &__footer {
     position: sticky;
     bottom: 0;
-    padding: 12px;
+    margin-bottom: 20px;
+    padding: 12px $grid-padding 16px;
     background-color: $snooow;
     align-items: center;
     @include divider(top);
+
+    @include public-desktop-container;
   }
 
   &__logo-block {

@@ -75,159 +75,161 @@ function Profile() {
                                 onChange={onChangeCover}
                             />
                         </div>
-                        <FormSection rows={[
-                            {
-                                type: FORM_SECTION_ROW_TYPE.INPUT,
-                                props: {
-                                    placeholder: t('NAME_PLACEHOLDER'),
-                                    value: name,
-                                    onChange: (event) => {
-                                        setName(event.target.value);
-                                    },
-                                },
-                            },
-                            {
-                                type: FORM_SECTION_ROW_TYPE.INPUT,
-                                props: {
-                                    placeholder: t('NICKNAME_PLACEHOLDER'),
-                                    value: nickname,
-                                    onChange: (event) => {
-                                        setNickname(event.target.value);
-                                    },
-                                },
-                            },
-                            {
-                                type: FORM_SECTION_ROW_TYPE.INPUT,
-                                props: {
-                                    placeholder: t('ADDRESS_PLACEHOLDER'),
-                                    value: address,
-                                    onChange: (event) => {
-                                        setAddress(event.target.value);
-                                    },
-                                },
-                            },
-                            {
-                                type: FORM_SECTION_ROW_TYPE.INPUT,
-                                props: {
-                                    placeholder: t('DESCRIPTION_PLACEHOLDER'),
-                                    value: description,
-                                    onChange: (event) => {
-                                        setDescription(event.target.value);
-                                    },
-                                },
-                            },
-                            {
-                                type: FORM_SECTION_ROW_TYPE.INPUT,
-                                props: {
-                                    placeholder: t('CATEGORY_PLACEHOLDER'),
-                                    value: category,
-                                    onChange: (event) => {
-                                        setCategory(event.target.value);
-                                    },
-                                },
-                            },
-                            {
-                                type: FORM_SECTION_ROW_TYPE.BISECTED,
-                                children: [
-                                    {
-                                        type: FORM_SECTION_ROW_TYPE.INPUT,
-                                        props: {
-                                            placeholder: t('CHECK_PLACEHOLDER'),
-                                            minifiedPlaceholder: t('CHECK_MINIFIED_PLACEHOLDER'),
-                                            value: check,
-                                            onChange: (event) => {
-                                                setCheck(event.target.value);
-                                            },
+                        <div className={GetModifiers(componentClass, 'content')}>
+                            <FormSection rows={[
+                                {
+                                    type: FORM_SECTION_ROW_TYPE.INPUT,
+                                    props: {
+                                        placeholder: t('NAME_PLACEHOLDER'),
+                                        value: name,
+                                        onChange: (event) => {
+                                            setName(event.target.value);
                                         },
                                     },
-                                    {
-                                        type: FORM_SECTION_ROW_TYPE.INPUT,
-                                        props: {
-                                            placeholder: t('TO_PLACEHOLDER'),
-                                            value: to,
-                                            onChange: (event) => {
-                                                setTo(event.target.value);
-                                            },
+                                },
+                                {
+                                    type: FORM_SECTION_ROW_TYPE.INPUT,
+                                    props: {
+                                        placeholder: t('NICKNAME_PLACEHOLDER'),
+                                        value: nickname,
+                                        onChange: (event) => {
+                                            setNickname(event.target.value);
                                         },
                                     },
-                                ]
-                            },
-                        ]}/>
-                        <FormSection rows={[
-                            {
-                                type: FORM_SECTION_ROW_TYPE.INPUT,
-                                props: {
-                                    placeholder: t('PHONE_PLACEHOLDER'),
-                                    value: phone,
-                                    onChange: (event) => {
-                                        setPhone(event.target.value);
+                                },
+                                {
+                                    type: FORM_SECTION_ROW_TYPE.INPUT,
+                                    props: {
+                                        placeholder: t('ADDRESS_PLACEHOLDER'),
+                                        value: address,
+                                        onChange: (event) => {
+                                            setAddress(event.target.value);
+                                        },
                                     },
                                 },
-                            },
-                            {
-                                type: FORM_SECTION_ROW_TYPE.INPUT,
-                                props: {
-                                    placeholder: t('EMAIL_PLACEHOLDER'),
-                                    value: email,
-                                    onChange: (event) => {
-                                        setEmail(event.target.value);
+                                {
+                                    type: FORM_SECTION_ROW_TYPE.INPUT,
+                                    props: {
+                                        placeholder: t('DESCRIPTION_PLACEHOLDER'),
+                                        value: description,
+                                        onChange: (event) => {
+                                            setDescription(event.target.value);
+                                        },
                                     },
                                 },
-                            },
-                            {
-                                type: FORM_SECTION_ROW_TYPE.INPUT,
-                                props: {
-                                    placeholder: t('FACEBOOK_PLACEHOLDER'),
-                                    value: facebook,
-                                    onChange: (event) => {
-                                        setFacebook(event.target.value);
+                                {
+                                    type: FORM_SECTION_ROW_TYPE.INPUT,
+                                    props: {
+                                        placeholder: t('CATEGORY_PLACEHOLDER'),
+                                        value: category,
+                                        onChange: (event) => {
+                                            setCategory(event.target.value);
+                                        },
                                     },
                                 },
-                            },
-                            {
-                                type: FORM_SECTION_ROW_TYPE.INPUT,
-                                props: {
-                                    placeholder: t('INSTAGRAM_PLACEHOLDER'),
-                                    value: instagram,
-                                    onChange: (event) => {
-                                        setInstagram(event.target.value);
+                                {
+                                    type: FORM_SECTION_ROW_TYPE.BISECTED,
+                                    children: [
+                                        {
+                                            type: FORM_SECTION_ROW_TYPE.INPUT,
+                                            props: {
+                                                placeholder: t('CHECK_PLACEHOLDER'),
+                                                minifiedPlaceholder: t('CHECK_MINIFIED_PLACEHOLDER'),
+                                                value: check,
+                                                onChange: (event) => {
+                                                    setCheck(event.target.value);
+                                                },
+                                            },
+                                        },
+                                        {
+                                            type: FORM_SECTION_ROW_TYPE.INPUT,
+                                            props: {
+                                                placeholder: t('TO_PLACEHOLDER'),
+                                                value: to,
+                                                onChange: (event) => {
+                                                    setTo(event.target.value);
+                                                },
+                                            },
+                                        },
+                                    ]
+                                },
+                            ]}/>
+                            <FormSection rows={[
+                                {
+                                    type: FORM_SECTION_ROW_TYPE.INPUT,
+                                    props: {
+                                        placeholder: t('PHONE_PLACEHOLDER'),
+                                        value: phone,
+                                        onChange: (event) => {
+                                            setPhone(event.target.value);
+                                        },
                                     },
                                 },
-                            },
-                        ]}/>
-                        <Button
-                            disabled={disabled}
-                            onClick={() => {
-                                navigate(ROUTE_ROOT)
-                            }}
-                        >
-                            {t('SAVE_BUTTON')}
-                        </Button>
-                        <div className={GetModifiers(componentClass, 'footer')}>
-                            <LinkButton
-                                to={ROUTE_MENU}
-                                className={GetModifiers(componentClass, 'navigation-link', [{
-                                    condition: true,
-                                    value: 'small'
-                                }])}
-                                size={SIZE.SUBTITLE}
+                                {
+                                    type: FORM_SECTION_ROW_TYPE.INPUT,
+                                    props: {
+                                        placeholder: t('EMAIL_PLACEHOLDER'),
+                                        value: email,
+                                        onChange: (event) => {
+                                            setEmail(event.target.value);
+                                        },
+                                    },
+                                },
+                                {
+                                    type: FORM_SECTION_ROW_TYPE.INPUT,
+                                    props: {
+                                        placeholder: t('FACEBOOK_PLACEHOLDER'),
+                                        value: facebook,
+                                        onChange: (event) => {
+                                            setFacebook(event.target.value);
+                                        },
+                                    },
+                                },
+                                {
+                                    type: FORM_SECTION_ROW_TYPE.INPUT,
+                                    props: {
+                                        placeholder: t('INSTAGRAM_PLACEHOLDER'),
+                                        value: instagram,
+                                        onChange: (event) => {
+                                            setInstagram(event.target.value);
+                                        },
+                                    },
+                                },
+                            ]}/>
+                            <Button
                                 disabled={disabled}
+                                onClick={() => {
+                                    navigate(ROUTE_ROOT)
+                                }}
                             >
-                                {t('SAVE_AND_CREATE_BUTTON')} <span>
+                                {t('SAVE_BUTTON')}
+                            </Button>
+                            <div className={GetModifiers(componentClass, 'footer')}>
+                                <LinkButton
+                                    to={ROUTE_MENU}
+                                    className={GetModifiers(componentClass, 'navigation-link', [{
+                                        condition: true,
+                                        value: 'small'
+                                    }])}
+                                    size={SIZE.SUBTITLE}
+                                    disabled={disabled}
+                                >
+                                    {t('SAVE_AND_CREATE_BUTTON')} <span>
                                 {tFixed('COMMON.ARROW_RIGHT')}
                                 </span>
-                            </LinkButton>
-                            <LinkButton
-                                to={ROUTE_PREVIEW}
-                                className={GetModifiers(componentClass, 'navigation-link', [{
-                                    condition: true,
-                                    value: 'small'
-                                }])}
-                                size={SIZE.SUBTITLE}
-                                disabled={disabled}
-                            >
-                                {t('PREVIEW_BUTTON')}
-                            </LinkButton>
+                                </LinkButton>
+                                <LinkButton
+                                    to={ROUTE_PREVIEW}
+                                    className={GetModifiers(componentClass, 'navigation-link', [{
+                                        condition: true,
+                                        value: 'small'
+                                    }])}
+                                    size={SIZE.SUBTITLE}
+                                    disabled={disabled}
+                                >
+                                    {t('PREVIEW_BUTTON')}
+                                </LinkButton>
+                            </div>
                         </div>
                     </div>
                 </Card>

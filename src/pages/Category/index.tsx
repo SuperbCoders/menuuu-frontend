@@ -13,7 +13,7 @@ import {CreateAbsolutePath} from "../../utils/routes";
 import Toggle from "../../components/Toggle";
 import Button from "../../components/Button";
 import DotsIcon from "../../components/Icons/DotsIcon";
-import {BUTTON_TYPE} from "../../components/Button/constants";
+import {BUTTON_OPACITY, BUTTON_TYPE} from "../../components/Button/constants";
 import {DIRECTION} from "../../constants/positions";
 import TapTarget from "../../components/TapTarget";
 import {useTranslation} from "react-i18next";
@@ -83,6 +83,7 @@ function Category() {
                             tapClassName={GetModifiers(componentClass, 'more-tap')}
                             className={GetModifiers(componentClass, 'more')}
                             type={BUTTON_TYPE.SMALL}
+                            opacity={BUTTON_OPACITY.HALF}
                         >
                             <DotsIcon/>
                         </Button>

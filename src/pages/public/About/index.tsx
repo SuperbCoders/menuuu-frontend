@@ -1,17 +1,17 @@
 import React from 'react';
-import {GetModifiers} from "../../utils/classNames";
+import {useTranslation} from "react-i18next";
+import {GetModifiers} from "../../../utils/classNames";
 import {AboutSocials} from "./constants";
-import TapTarget from "../../components/TapTarget";
-import FormSection from "../../components/FormSection";
-import {FORM_SECTION_ROW_TYPE} from "../../components/FormSection/constants";
+import TapTarget from "../../../components/TapTarget";
+import FormSection from "../../../components/FormSection";
+import {FORM_SECTION_ROW_TYPE} from "../../../components/FormSection/constants";
 import Background from './background.png';
 import Logo from './logo.png';
-import {useTranslation} from "react-i18next";
 
-const componentClass = 'user-about';
+const componentClass = 'public-about';
 const keyPrefix = 'PUBLIC_ABOUT';
 
-function UserAbout() {
+function PublicAbout() {
     const { t } = useTranslation([], {keyPrefix});
 
     return (
@@ -99,4 +99,4 @@ function UserAbout() {
     );
 }
 
-export default UserAbout;
+export default PublicAbout;

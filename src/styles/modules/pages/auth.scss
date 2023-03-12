@@ -4,6 +4,10 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+
+    @include media-desktop {
+      padding: 0 $first-column-width;
+    }
   }
 
   &__submit {

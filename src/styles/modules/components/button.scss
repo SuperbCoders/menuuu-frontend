@@ -1,4 +1,5 @@
 .button {
+  $block: &;
   padding: 14px 24px 18px;
   border: 0;
   width: 100%;
@@ -30,6 +31,18 @@
     color: $snooow;
   }
 
+  &:not(&_small) {
+    &#{$block}_opacity-half {
+      background-color: $snooow;
+      color: $aaash;
+    }
+
+    &#{$block}_opacity-quarter {
+      background-color: $snooow-50;
+      color: $aaash-50;
+    }
+  }
+
   &_small {
     padding: 4px 12px 7px 12px;
     border: 2px solid $coaaal;
@@ -40,6 +53,16 @@
     &:hover, &:focus {
       background-color: $aaash-25;
       outline: 3px solid $aaash-25;
+    }
+
+    &#{$block}_opacity-half {
+      border-color: $aaash-50;
+      color: $aaash;
+    }
+
+    &#{$block}_opacity-quarter {
+      border-color: $aaash-25;
+      color: $aaash-50;
     }
   }
 

@@ -1,7 +1,7 @@
-import {SOCIALS} from "../../constants/socials";
-import TwitterImage from '../../assets/icons/social/twitter.svg';
-import InstagramImage from '../../assets/icons/social/instagram.svg';
-import FacebookImage from '../../assets/icons/social/facebook.svg';
+import {SOCIALS} from "../../../constants/socials";
+import TwitterImage from '../../../assets/icons/social/twitter.svg';
+import InstagramImage from '../../../assets/icons/social/instagram.svg';
+import FacebookImage from '../../../assets/icons/social/facebook.svg';
 
 interface AboutSocial {
     image: string,

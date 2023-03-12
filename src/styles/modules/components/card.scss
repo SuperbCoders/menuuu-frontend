@@ -33,7 +33,17 @@
   &_snooow {
     background-color: $snooow;
 
+    @include media-desktop {
+      border: 1px solid $coaaal;
+      border-bottom: 0;
+    }
+
     &#{$block}_disabled {
+      @include media-desktop {
+        border: 1px solid $tableee;
+        border-bottom: 0;
+      }
+
       &:before {
         content: '';
         position: absolute;
@@ -44,6 +54,11 @@
         width: 100%;
         border: 1px solid $tableee;
         border-bottom: 0;
+        pointer-events: none;
+
+        @include media-desktop {
+          content: none;
+        }
       }
     }
   }

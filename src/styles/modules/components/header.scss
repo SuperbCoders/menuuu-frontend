@@ -3,6 +3,11 @@
   background-color: $snooow;
   transition: background-color $transition-duration-average linear;
 
+  @include media-desktop {
+    margin-bottom: 40px;
+    padding: $desktop-container-padding;
+  }
+
   &_expanded {
     background-color: $coaaal;
   }
@@ -76,6 +81,7 @@
   &__menu-wrapper {
     position: absolute;
     z-index: 1;
+    left: 0;
     top: $header-height;
     width: 100%;
     height: $container-height;
@@ -84,6 +90,10 @@
     opacity: 0;
     transition: visibility $transition-duration-average 0s linear,
     opacity $transition-duration-average linear;
+
+    @include media-desktop {
+      padding: $desktop-container-padding;
+    }
 
     &_visible {
       visibility: visible;

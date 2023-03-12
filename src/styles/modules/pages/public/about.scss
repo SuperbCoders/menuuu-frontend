@@ -1,9 +1,12 @@
-.user-about {
-  padding: 24px 12px;
+.public-about {
+  padding: 24px 12px 20px;
+  min-height: 100vh;
   background-color: $tableee;
   display: flex;
   flex-direction: column;
   gap: 8px;
+
+  @include public-desktop-container;
 
   &__main {
     border-radius: $border-radius-big;

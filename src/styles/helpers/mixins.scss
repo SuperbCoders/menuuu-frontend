@@ -1,5 +1,11 @@
 @import "./colors";
 
+@mixin media-desktop {
+  @media (min-width: $mobile-width) {
+    @content;
+  }
+}
+
 @mixin divider($position: bottom) {
   @if $position == bottom {
     border-bottom: $divider;
@@ -26,5 +32,13 @@
 
   &_disabled {
     border-color: $aaash-50;
+  }
+}
+
+@mixin public-desktop-container {
+  @include media-desktop {
+    $horizontal-padding: $desktop-horizontal-padding+$grid-padding;
+    padding-left: $horizontal-padding;
+    padding-right: $horizontal-padding;
   }
 }

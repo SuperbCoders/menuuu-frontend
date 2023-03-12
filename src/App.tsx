@@ -3,8 +3,6 @@ import {
     RouterProvider, Route,
     createBrowserRouter, createRoutesFromElements,
 } from "react-router-dom";
-import {Provider} from 'react-redux';
-import UserMenu from "./pages/UserMenu";
 import {
     PARAM_ID,
     PARAM_RESTAURANT,
@@ -12,10 +10,11 @@ import {
     ROUTE_COURSES,
     ROUTE_MENU, ROUTE_PLANS, ROUTE_PROFILE,
     ROUTE_ROOT,
-    ROUTE_USER
+    ROUTE_PUBLIC,
 } from "./constants/routes";
-import UserAbout from "./pages/UserAbout";
-import UserCourse from "./pages/UserCourse";
+import PublicMenu from "./pages/public/Menu";
+import PublicAbout from "./pages/public/About";
+import PublicCourse from "./pages/public/Course";
 import Plans from "./pages/Plans";
 import Main from "./pages/Main";
 import Profile from "./pages/Profile";
@@ -37,11 +36,11 @@ const router = createBrowserRouter(
                 <Route path={ROUTE_MENU} element={<Menu/>}/>
             </Route>
             <Route path={ROUTE_PLANS} element={<Plans/>}/>
-            <Route path={`${ROUTE_USER}/${PARAM_RESTAURANT}`}>
-                <Route path={ROUTE_MENU} element={<UserMenu/>}/>
-                <Route path={ROUTE_ABOUT} element={<UserAbout/>}/>
+            <Route path={`${ROUTE_PUBLIC}/${PARAM_RESTAURANT}`}>
+                <Route path={ROUTE_MENU} element={<PublicMenu/>}/>
+                <Route path={ROUTE_ABOUT} element={<PublicAbout/>}/>
                 <Route path={ROUTE_COURSES}>
-                    <Route path={PARAM_ID} element={<UserCourse/>}/>
+                    <Route path={PARAM_ID} element={<PublicCourse/>}/>
                 </Route>
             </Route>
         </Route>
