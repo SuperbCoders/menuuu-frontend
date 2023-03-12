@@ -7,6 +7,7 @@ import {
 } from "../../utils/files";
 import {GetModifiers} from "../../utils/classNames";
 import CameraIcon from "../Icons/CameraIcon";
+import {useTranslation} from "react-i18next";
 
 const componentClass = 'file-input';
 
@@ -37,6 +38,7 @@ function FileInput(props: FileInputProps) {
         onChange = () => {
         },
     } = props;
+    const { t } = useTranslation();
     const id: string = `${formName}-${name}`;
     const blockRef = useRef<HTMLDivElement>();
     const inputRef = useRef<HTMLInputElement>();
@@ -133,7 +135,7 @@ function FileInput(props: FileInputProps) {
                     onClick={(event: SyntheticEvent) => {
                         event.preventDefault();
                     }}
-                    alt="Preview"
+                    alt={t("COMPONENTS.FILE_INPUT_PREVIEW_ALT")}
                 />
             ) : (
                 <>

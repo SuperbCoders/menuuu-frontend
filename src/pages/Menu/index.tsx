@@ -14,8 +14,7 @@ import Toggle from "../../components/Toggle";
 import Button from "../../components/Button";
 import DotsIcon from "../../components/Icons/DotsIcon";
 import {BUTTON_TYPE} from "../../components/Button/constants";
-
-const componentClass = 'menu';
+import {useTranslation} from "react-i18next";
 
 const CategoriesMock = [
     {
@@ -44,7 +43,11 @@ const CategoriesMock = [
     },
 ]
 
+const componentClass = 'menu';
+const keyPrefix = 'MENU';
+
 function Menu() {
+    const {t} = useTranslation([], {keyPrefix});
     const navigate = useNavigate();
     const [categories, setCategories] = useState<any>(CategoriesMock);
     const isEmpty = !categories.length;
@@ -54,7 +57,7 @@ function Menu() {
             <Header/>
             <Cards>
                 <Card
-                    title='menu'
+                    title={t('TITLE')}
                     thirdColumn={
                         <Button
                             tapClassName={GetModifiers(componentClass, 'more-tap')}
@@ -72,7 +75,7 @@ function Menu() {
                                         false,
                                         (
                                             <div className={GetModifiers(componentClass, 'description')}>
-                                                add a new category ex.: drinks, hot meals, breakfast, lunch
+                                                {t('EMPTY_DESCRIPTION')}
                                             </div>
                                         ),
                                     ]}
@@ -120,7 +123,7 @@ function Menu() {
                 </Card>
                 <Card
                     colorTheme={COLOR_NAME.COAL}
-                    title='publish'
+                    title={t('PUBLISH_TITLE')}
                     disabled={isEmpty}
                     icon={
                         <div className={GetModifiers(componentClass, 'card-icon', [{
@@ -143,7 +146,7 @@ function Menu() {
                     }}
                 />
                 <Card
-                    title='add category'
+                    title={t('ADD_CATEGORY_TITLE')}
                     colorTheme={COLOR_NAME.FRUIT}
                     icon={
                         <div className={GetModifiers(componentClass, 'card-icon')}>
@@ -153,8 +156,7 @@ function Menu() {
                     onClick={() => {
                         navigate(CreateAbsolutePath(ROUTE_ADD_CATEGORY))
                     }}
-                >
-                </Card>
+                />
             </Cards>
         </div>
     );

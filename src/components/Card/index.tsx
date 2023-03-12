@@ -2,6 +2,7 @@ import React, {MouseEvent, ReactNode} from 'react';
 import {GetModifiers} from "../../utils/classNames";
 import Grid from "../../components/Grid";
 import {COLOR_NAME} from "../../constants/colors";
+import {useTranslation} from "react-i18next";
 
 const componentClass = 'card';
 
@@ -26,6 +27,7 @@ function Card(props: CardProps) {
         children,
         onClick,
     } = props;
+    const { t } = useTranslation();
 
     return (
         <div
@@ -58,7 +60,7 @@ function Card(props: CardProps) {
                     icon,
                     (
                         <div className={GetModifiers(componentClass, 'title')}>
-                            {title}
+                            {t(title)}
                         </div>
                     ),
                     thirdColumn,

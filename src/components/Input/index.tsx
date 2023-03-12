@@ -1,5 +1,6 @@
 import React, {ChangeEvent, FocusEvent, useEffect, useState, useRef, useMemo, CSSProperties} from 'react';
 import {GetModifiers, ModifierInterface} from "../../utils/classNames";
+import {useTranslation} from "react-i18next";
 
 const componentClass = 'input';
 
@@ -19,7 +20,6 @@ export interface InputProps {
     validateOnBlur?: boolean;
     forceValidate?: boolean;
     isInvalid?: boolean;
-    isRequired?: boolean;
     readonly?: boolean;
     isStraightBorderTop?: boolean;
     isStraightBorderBottom?: boolean;
@@ -45,7 +45,6 @@ function Input(props: InputProps) {
         validateOnBlur = true,
         forceValidate = false,
         isInvalid = false,
-        isRequired = false,
         readonly = false,
         isStraightBorderTop = false,
         isStraightBorderBottom = false,
@@ -56,6 +55,7 @@ function Input(props: InputProps) {
         focusChangedCallback = () => {
         },
     } = props;
+    const { t } = useTranslation();
     const id: string = `${formName}-${name}`;
     const wrapperRef = useRef<HTMLDivElement>();
     const [passwordVisibility, setPasswordVisibility] = useState<boolean>(false);
@@ -128,7 +128,6 @@ function Input(props: InputProps) {
             {label && (
                 <label htmlFor={id} className={GetModifiers(componentClass, 'label')}>
                     {label}
-                    {isRequired && <span className={GetModifiers(componentClass, 'required')}>*</span>}
                 </label>
             )}
             <div
@@ -184,8 +183,7 @@ function Input(props: InputProps) {
                             value: 'minified'
                         }
                     ])}>
-                        {(placeholderMinified && minifiedPlaceholder) || placeholder}
-                        {isRequired && !label && <span className={GetModifiers(componentClass, 'required')}>*</span>}
+                        {(placeholderMinified && minifiedPlaceholder) || t(placeholder)}
                     </label>
                 )}
             </div>

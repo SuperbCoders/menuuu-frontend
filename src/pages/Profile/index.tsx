@@ -13,12 +13,16 @@ import {SIZE} from "../../constants/sizes";
 import FileInput from "../../components/FileInput";
 import CameraIcon from "../../components/Icons/CameraIcon";
 import LongArrowIcon from "../../components/Icons/LongArrowIcon";
+import {useTranslation} from "react-i18next";
 
 const componentClass = 'profile';
 const formName = 'profile';
+const keyPrefix = 'PROFILE';
 
 function Profile() {
     const navigate = useNavigate();
+    const {t, i18n} = useTranslation([], {keyPrefix});
+    const tFixed = i18n.getFixedT(i18n.language);
 
     const [name, setName] = useState<string>('');
     const [nickname, setNickname] = useState<string>('');
@@ -49,23 +53,23 @@ function Profile() {
             <Header/>
             <Cards>
                 <Card
-                    title='your restaurant'
+                    title={t('TITLE')}
                 >
                     <div className={GetModifiers(componentClass, 'form')}>
                         <div className={GetModifiers(componentClass, 'header')}>
                             <FileInput
                                 name='cover'
                                 formName={formName}
-                                title='upload cover'
-                                hint='jpeg less than 3 mb'
+                                title={t('COVER_TITLE')}
+                                hint={t('COVER_HINT')}
                                 icon={<CameraIcon/>}
                                 onChange={onChangeCover}
                             />
                             <FileInput
                                 name='logo'
                                 formName={formName}
-                                title='upload logo'
-                                hint='jpeg 192×192 px'
+                                title={t('LOGO_TITLE')}
+                                hint={t('LOGO_HINT')}
                                 className={GetModifiers(componentClass, 'logo')}
                                 icon={<LongArrowIcon/>}
                                 onChange={onChangeCover}
@@ -75,7 +79,7 @@ function Profile() {
                             {
                                 type: FORM_SECTION_ROW_TYPE.INPUT,
                                 props: {
-                                    placeholder: 'name',
+                                    placeholder: t('NAME_PLACEHOLDER'),
                                     value: name,
                                     onChange: (event) => {
                                         setName(event.target.value);
@@ -85,7 +89,7 @@ function Profile() {
                             {
                                 type: FORM_SECTION_ROW_TYPE.INPUT,
                                 props: {
-                                    placeholder: 'nickname',
+                                    placeholder: t('NICKNAME_PLACEHOLDER'),
                                     value: nickname,
                                     onChange: (event) => {
                                         setNickname(event.target.value);
@@ -95,7 +99,7 @@ function Profile() {
                             {
                                 type: FORM_SECTION_ROW_TYPE.INPUT,
                                 props: {
-                                    placeholder: 'address',
+                                    placeholder: t('ADDRESS_PLACEHOLDER'),
                                     value: address,
                                     onChange: (event) => {
                                         setAddress(event.target.value);
@@ -105,7 +109,7 @@ function Profile() {
                             {
                                 type: FORM_SECTION_ROW_TYPE.INPUT,
                                 props: {
-                                    placeholder: 'description',
+                                    placeholder: t('DESCRIPTION_PLACEHOLDER'),
                                     value: description,
                                     onChange: (event) => {
                                         setDescription(event.target.value);
@@ -115,7 +119,7 @@ function Profile() {
                             {
                                 type: FORM_SECTION_ROW_TYPE.INPUT,
                                 props: {
-                                    placeholder: 'category',
+                                    placeholder: t('CATEGORY_PLACEHOLDER'),
                                     value: category,
                                     onChange: (event) => {
                                         setCategory(event.target.value);
@@ -128,8 +132,8 @@ function Profile() {
                                     {
                                         type: FORM_SECTION_ROW_TYPE.INPUT,
                                         props: {
-                                            placeholder: 'avg. check',
-                                            minifiedPlaceholder: 'avg. check, from',
+                                            placeholder: t('CHECK_PLACEHOLDER'),
+                                            minifiedPlaceholder: t('CHECK_MINIFIED_PLACEHOLDER'),
                                             value: check,
                                             onChange: (event) => {
                                                 setCheck(event.target.value);
@@ -139,7 +143,7 @@ function Profile() {
                                     {
                                         type: FORM_SECTION_ROW_TYPE.INPUT,
                                         props: {
-                                            placeholder: 'to',
+                                            placeholder: t('TO_PLACEHOLDER'),
                                             value: to,
                                             onChange: (event) => {
                                                 setTo(event.target.value);
@@ -153,7 +157,7 @@ function Profile() {
                             {
                                 type: FORM_SECTION_ROW_TYPE.INPUT,
                                 props: {
-                                    placeholder: 'phone',
+                                    placeholder: t('PHONE_PLACEHOLDER'),
                                     value: phone,
                                     onChange: (event) => {
                                         setPhone(event.target.value);
@@ -163,7 +167,7 @@ function Profile() {
                             {
                                 type: FORM_SECTION_ROW_TYPE.INPUT,
                                 props: {
-                                    placeholder: 'e-mail',
+                                    placeholder: t('EMAIL_PLACEHOLDER'),
                                     value: email,
                                     onChange: (event) => {
                                         setEmail(event.target.value);
@@ -173,7 +177,7 @@ function Profile() {
                             {
                                 type: FORM_SECTION_ROW_TYPE.INPUT,
                                 props: {
-                                    placeholder: 'facebook',
+                                    placeholder: t('FACEBOOK_PLACEHOLDER'),
                                     value: facebook,
                                     onChange: (event) => {
                                         setFacebook(event.target.value);
@@ -183,7 +187,7 @@ function Profile() {
                             {
                                 type: FORM_SECTION_ROW_TYPE.INPUT,
                                 props: {
-                                    placeholder: 'instagram',
+                                    placeholder: t('INSTAGRAM_PLACEHOLDER'),
                                     value: instagram,
                                     onChange: (event) => {
                                         setInstagram(event.target.value);
@@ -197,7 +201,7 @@ function Profile() {
                                 navigate(ROUTE_ROOT)
                             }}
                         >
-                            save
+                            {t('SAVE_BUTTON')}
                         </Button>
                         <div className={GetModifiers(componentClass, 'footer')}>
                             <LinkButton
@@ -209,7 +213,9 @@ function Profile() {
                                 size={SIZE.SUBTITLE}
                                 disabled={disabled}
                             >
-                                save and create menu <span>→</span>
+                                {t('SAVE_AND_CREATE_BUTTON')} <span>
+                                {tFixed('COMMON.ARROW_RIGHT')}
+                                </span>
                             </LinkButton>
                             <LinkButton
                                 to={ROUTE_PREVIEW}
@@ -220,7 +226,7 @@ function Profile() {
                                 size={SIZE.SUBTITLE}
                                 disabled={disabled}
                             >
-                                preview
+                                {t('PREVIEW_BUTTON')}
                             </LinkButton>
                         </div>
                     </div>

@@ -1,31 +1,33 @@
 import React from 'react';
 import {GetModifiers} from "../../utils/classNames";
 import Photo from './photo.png';
-
-const componentClass = 'user-course';
+import {useTranslation} from "react-i18next";
 
 const Properties = [
     {
-        name: 'coffee or chocolate or vanilla or peanut butter + oreos 0,8 €',
-    },
-    {
-        name: 'cooking time',
+        name: 'PROPERTY_COOKING_TIME',
         value: '5−7 minutes',
     },
     {
-        name: 'allergy ingredients',
+        name: 'PROPERTY_ALLERGY_INGREDIENTS',
         value: 'lactose, nuts',
     },
 ]
 
+const componentClass = 'user-course';
+const keyPrefix = 'PUBLIC_COURSE';
+
 function UserCourse() {
+    const { t, i18n } = useTranslation([], {keyPrefix});
+    const tFixed = i18n.getFixedT(i18n.language);
+
     return (
         <div className={componentClass}>
             {Photo && (
                 <div className={GetModifiers(componentClass, 'photo-block')}>
                     <img
                         src={Photo}
-                        alt='Course'
+                        alt={t('PHOTO_ALT')}
                         className={GetModifiers(componentClass, 'photo')}
                     />
                 </div>
@@ -35,6 +37,11 @@ function UserCourse() {
                     vegan magic monkey
                 </div>
                 <div className={GetModifiers(componentClass, 'properties')}>
+                    <div className={GetModifiers(componentClass, 'property')}>
+                        <div className={GetModifiers(componentClass, 'property-name')}>
+                            coffee or chocolate or vanilla or peanut butter + oreos 0,8 €
+                        </div>
+                    </div>
                     {Properties.map((item, index) => {
                         const {
                             name,
@@ -43,7 +50,7 @@ function UserCourse() {
                         return (
                             <div key={index} className={GetModifiers(componentClass, 'property')}>
                                 <div className={GetModifiers(componentClass, 'property-name')}>
-                                    {name}
+                                    {t(name)}
                                 </div>
                                 {value && (
                                     <div className={GetModifiers(componentClass, 'property-value')}>
@@ -55,7 +62,7 @@ function UserCourse() {
                     })}
                 </div>
                 <div className={GetModifiers(componentClass, 'price')}>
-                    5,00 €
+                    5,00 {tFixed('COMMON.CURRENCY_EURO')}
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 import React, {MouseEvent, useState} from 'react';
-import {useNavigate, useLocation, useMatches} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {GetModifiers} from "../../utils/classNames";
 import SelectButton from "../../components/SelectButton";
 import Grid from "../../components/Grid";
@@ -8,9 +8,7 @@ import Badge from "../../components/Badge";
 import Button from "../../components/Button";
 import {BUTTON_TYPE} from "../../components/Button/constants";
 import {ROUTE_ABOUT} from "../../constants/routes";
-import {RelativeRoutingType} from "react-router/dist/lib/context";
-
-const componentClass = 'user-menu';
+import {useTranslation} from "react-i18next";
 
 enum CATEGORY {
     EARLIER = 'earlier',
@@ -62,12 +60,12 @@ const Courses = [
     },
 ]
 
+const componentClass = 'user-menu';
+const keyPrefix = 'PUBLIC_MENU';
+
 function UserMenu() {
+    const {t} = useTranslation([], {keyPrefix});
     const navigate = useNavigate();
-    let location = useLocation();
-    const matches = useMatches();
-    console.log(location);
-    console.log(matches);
     const [categories, setCategories] = useState<CATEGORY[]>([]);
     const categoryClickHandler = (event: MouseEvent<HTMLButtonElement>, value: CATEGORY) => {
         if (categories.includes(value)) {
@@ -194,7 +192,7 @@ function UserMenu() {
                                 navigate(`/user/351/${ROUTE_ABOUT}`)
                             }}
                         >
-                            about
+                            {t('ABOUT_BUTTON')}
                         </Button>
                     ),
                 ]}

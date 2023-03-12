@@ -6,10 +6,14 @@ import {SIZE} from "../../constants/sizes";
 import {HeaderBurgerLines, HeaderNavigationItems} from "./constants";
 import {ROUTE_SETTINGS} from "../../constants/routes";
 import LogoIcon from "../Icons/LogoIcon";
+import {useTranslation} from "react-i18next";
 
 const componentClass = 'header';
+const keyPrefix = 'HEADER';
 
 function Header() {
+    const { t, i18n } = useTranslation([], {keyPrefix});
+    const tFixed = i18n.getFixedT(i18n.language);
     const [menuVisibility, setMenuVisibility] = useState<boolean>(false);
 
     return (
@@ -64,7 +68,7 @@ function Header() {
                                                 className={GetModifiers(componentClass, 'navigation-link')}
                                                 size={SIZE.DISPLAY}
                                             >
-                                                {item.title}
+                                                {t(item.title)}
                                             </LinkButton>
                                         )
                                     })}
@@ -77,7 +81,7 @@ function Header() {
                                     }])}
                                     size={SIZE.SUBTITLE}
                                 >
-                                    account settings <span>→</span>
+                                    {t('ACCOUNT_SETTINGS')} <span>{tFixed('COMMON.ARROW_RIGHT')}</span>
                                 </LinkButton>
                             </div>
                         ),

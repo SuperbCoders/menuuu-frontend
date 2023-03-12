@@ -1,17 +1,19 @@
-import React from 'react';
+import React, {Suspense} from 'react';
+import {Provider} from "react-redux";
 import ReactDOM from 'react-dom/client';
-import App from './App';
 import configureStore from "./store/configureStore";
 import './index.scss';
-import {Provider} from "react-redux";
-
-const store = configureStore();
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
+const store = configureStore();
+const App = React.lazy(() => import('./App'));
+
 root.render(
     <Provider store={store}>
-        <App/>
+        <Suspense fallback={<div>Loading...</div>}>
+            <App/>
+        </Suspense>
     </Provider>
 );

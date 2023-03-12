@@ -1,17 +1,17 @@
-import {ROUTE_PLANS} from "../../constants/routes";
+import {ROUTE_MENU, ROUTE_PLANS, ROUTE_PROFILE} from "../../constants/routes";
 
 export const HeaderBurgerLines = [0, 1];
 export const HeaderNavigationItems = [
     {
-        title: 'menu',
-        to: 'menu',
+        title: 'MENU_TITLE',
+        to: ROUTE_MENU,
     },
     {
-        title: 'plans',
+        title: 'PLANS_TITLE',
         to: ROUTE_PLANS,
     },
     {
-        title: 'profile',
-        to: 'profile',
+        title: 'PROFILE_TITLE',
+        to: ROUTE_PROFILE,
     },
 ]

@@ -1,4 +1,9 @@
 .add-category {
+  &__back {
+    margin: auto;
+    cursor: pointer;
+  }
+
   &__form {
     flex-grow: 1;
     display: flex;

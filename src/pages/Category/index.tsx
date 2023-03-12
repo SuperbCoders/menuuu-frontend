@@ -16,8 +16,7 @@ import DotsIcon from "../../components/Icons/DotsIcon";
 import {BUTTON_TYPE} from "../../components/Button/constants";
 import {DIRECTION} from "../../constants/positions";
 import TapTarget from "../../components/TapTarget";
-
-const componentClass = 'category';
+import {useTranslation} from "react-i18next";
 
 const CategoriesMock = [
     {
@@ -52,7 +51,11 @@ const CategoriesMock = [
     },
 ]
 
+const componentClass = 'category';
+const keyPrefix = 'CATEGORY';
+
 function Category() {
+    const {t} = useTranslation([], {keyPrefix});
     const navigate = useNavigate();
     const [categories, setCategories] = useState<any>(CategoriesMock);
     const isEmpty = !categories.length;
@@ -92,7 +95,7 @@ function Category() {
                                         false,
                                         (
                                             <div className={GetModifiers(componentClass, 'description')}>
-                                                add a new category ex.: drinks, hot meals, breakfast, lunch
+                                                {t('EMPTY_DESCRIPTION')}
                                             </div>
                                         ),
                                     ]}
@@ -134,7 +137,7 @@ function Category() {
                     </>
                 </Card>
                 <Card
-                    title='add category'
+                    title={t('ADD_CATEGORY_TITLE')}
                     colorTheme={COLOR_NAME.FRUIT}
                     icon={
                         <div className={GetModifiers(componentClass, 'card-icon')}>
@@ -144,8 +147,7 @@ function Category() {
                     onClick={() => {
                         navigate(CreateAbsolutePath(ROUTE_ADD_CATEGORY))
                     }}
-                >
-                </Card>
+                />
             </Cards>
         </div>
     );

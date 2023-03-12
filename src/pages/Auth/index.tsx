@@ -9,6 +9,7 @@ import {FORM_SECTION_ROW_TYPE} from "../../components/FormSection/constants";
 import Button from "../../components/Button";
 import {connect} from "react-redux";
 import {LoginRequestedAction, LoginRequestedPayload} from "../../store/users/actions";
+import {useTranslation} from "react-i18next";
 
 const componentClass = 'auth';
 
@@ -20,6 +21,7 @@ function Auth(props: AuthProps) {
     const {
         loginRequestedAction,
     } = props;
+    const { t } = useTranslation();
     const navigate = useNavigate();
 
     const [login, setLogin] = useState<string>('');
@@ -41,14 +43,14 @@ function Auth(props: AuthProps) {
             <Header/>
             <Cards>
                 <Card
-                    title='authorization'
+                    title="AUTH.TITLE"
                 >
                     <div className={GetModifiers(componentClass, 'form')}>
                         <FormSection rows={[
                             {
                                 type: FORM_SECTION_ROW_TYPE.INPUT,
                                 props: {
-                                    placeholder: 'login',
+                                    placeholder: 'AUTH.LOGIN_PLACEHOLDER',
                                     value: login,
                                     onChange: (event) => {
                                         setLogin(event.target.value);
@@ -58,7 +60,7 @@ function Auth(props: AuthProps) {
                             {
                                 type: FORM_SECTION_ROW_TYPE.INPUT,
                                 props: {
-                                    placeholder: 'password',
+                                    placeholder: 'AUTH.PASSWORD_PLACEHOLDER',
                                     value: password,
                                     onChange: (event) => {
                                         setPassword(event.target.value);
@@ -71,7 +73,7 @@ function Auth(props: AuthProps) {
                             disabled={disabled}
                             onClick={submitHandler}
                         >
-                            login
+                            {t('AUTH.SUBMIT')}
                         </Button>
                     </div>
                 </Card>
@@ -88,7 +90,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return {
         token: state.users.token
     }

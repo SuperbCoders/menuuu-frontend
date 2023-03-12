@@ -1,19 +1,23 @@
 import React from 'react';
+import {useNavigate} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 import {GetModifiers} from "../../utils/classNames";
 import Header from "../../components/Header";
 import Card from "../../components/Card";
 import {COLOR_NAME} from "../../constants/colors";
 import Button from "../../components/Button";
 import Cards from "../../components/Cards";
-import {useNavigate} from "react-router-dom";
 import {ROUTE_PROFILE} from "../../constants/routes";
 import {CreateAbsolutePath} from "../../utils/routes";
 import Grid from "../../components/Grid";
 
 const componentClass = 'main';
+const keyPrefix = 'MAIN';
 
 function Main() {
     const navigate = useNavigate();
+    const { t, i18n } = useTranslation([], { keyPrefix });
+    const tFixed = i18n.getFixedT(i18n.language);
 
     return (
         <div className={componentClass}>
@@ -21,15 +25,17 @@ function Main() {
             <Cards>
                 <Card
                     colorTheme={COLOR_NAME.FRUIT}
-                    title='let’s get it started!'
+                    title={t('TITLE')}
                 >
                     <Grid
                         columns={[
                             false,
                             (
                                 <div className={GetModifiers(componentClass, 'description')}>
-                                    fill out a profile, create a restaurant menu and publish it <br/>
-                                    <span className={GetModifiers(componentClass, 'arrow-down')}>↓</span>
+                                    {t('DESCRIPTION')} <br/>
+                                    <span className={GetModifiers(componentClass, 'arrow-down')}>
+                                        {tFixed('COMMON.ARROW_DOWN')}
+                                    </span>
                                 </div>
                             ),
                         ]}
@@ -37,10 +43,10 @@ function Main() {
                 </Card>
                 <Card
                     colorTheme={COLOR_NAME.SNOW}
-                    title='profile'
+                    title={t('PROFILE_TITLE')}
                     icon={
                         <div className={GetModifiers(componentClass, 'step')}>
-                            1
+                            {t('STEP_ONE')}
                         </div>
                     }
                 >
@@ -50,7 +56,7 @@ function Main() {
                             (
                                 <div>
                                     <div className={GetModifiers(componentClass, 'profile-description')}>
-                                        complete a restaurant profile
+                                        {t('PROFILE_DESCRIPTION')}
                                     </div>
                                     <Button
                                         width='auto'
@@ -59,7 +65,7 @@ function Main() {
                                             navigate(CreateAbsolutePath(ROUTE_PROFILE))
                                         }}
                                     >
-                                        complete
+                                        {t('PROFILE_COMPLETE')}
                                     </Button>
                                 </div>
                             ),
@@ -68,14 +74,14 @@ function Main() {
                 </Card>
                 <Card
                     colorTheme={COLOR_NAME.SNOW}
-                    title='create menu'
+                    title={t('MENU_TITLE')}
                     disabled={true}
                     icon={
                         <div className={GetModifiers(componentClass, 'step', [{
                             condition: true,
                             value: 'disabled',
                         }])}>
-                            2
+                            {t('STEP_TWO')}
                         </div>
                     }
                 >

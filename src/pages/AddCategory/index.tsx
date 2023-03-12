@@ -11,10 +11,17 @@ import LinkButton from "../../components/LinkButton";
 import {ROUTE_ADD_CATEGORY, ROUTE_MENU} from "../../constants/routes";
 import {SIZE} from "../../constants/sizes";
 import {CreateAbsolutePath} from "../../utils/routes";
+import TapTarget from "../../components/TapTarget";
+import LongArrowIcon from "../../components/Icons/LongArrowIcon";
+import {DIRECTION} from "../../constants/positions";
+import {useTranslation} from "react-i18next";
 
 const componentClass = 'add-category';
+const keyPrefix = 'ADD_CATEGORY';
 
 function AddCategory() {
+    const {t, i18n} = useTranslation([], {keyPrefix});
+    const tFixed = i18n.getFixedT(i18n.language);
     const navigate = useNavigate();
 
     const [title, setTitle] = useState<string>('');
@@ -32,14 +39,26 @@ function AddCategory() {
             <Header/>
             <Cards>
                 <Card
-                    title='add category'
+                    title={t('TITLE')}
+                    icon={
+                        <TapTarget
+                            className={GetModifiers(componentClass, 'back')}
+                            onClick={() => {
+                                navigate(CreateAbsolutePath(ROUTE_MENU))
+                            }}
+                        >
+                            <LongArrowIcon
+                                direction={DIRECTION.LEFT}
+                            />
+                        </TapTarget>
+                    }
                 >
                     <div className={GetModifiers(componentClass, 'form')}>
                         <FormSection rows={[
                             {
                                 type: FORM_SECTION_ROW_TYPE.INPUT,
                                 props: {
-                                    placeholder: 'title',
+                                    placeholder: t('TITLE_PLACEHOLDER'),
                                     value: title,
                                     onChange: (event) => {
                                         setTitle(event.target.value);
@@ -54,7 +73,7 @@ function AddCategory() {
                                 navigate(CreateAbsolutePath(ROUTE_MENU))
                             }}
                         >
-                            save
+                            {t('SAVE_BUTTON')}
                         </Button>
                         <div className={GetModifiers(componentClass, 'footer')}>
                             <LinkButton
@@ -63,7 +82,9 @@ function AddCategory() {
                                 size={SIZE.SUBTITLE}
                                 disabled={disabled}
                             >
-                                save and create new <span>→</span>
+                                {t('SAVE_AND_CREATE_BUTTON')} <span>
+                                {tFixed('COMMON.ARROW_RIGHT')}
+                            </span>
                             </LinkButton>
                         </div>
                     </div>

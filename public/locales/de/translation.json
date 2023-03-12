@@ -1,0 +1,120 @@
+{
+  "COMMON": {
+    "CURRENCY": "$",
+    "CURRENCY_EURO": "€",
+    "TICK": "✓",
+    "ARROW_DOWN": "↓",
+    "ARROW_RIGHT": "→"
+  },
+  "COMPONENTS": {
+    "FILE_INPUT_PREVIEW_ALT": "Preview"
+  },
+  "HEADER": {
+    "MENU_TITLE": "menu",
+    "PLANS_TITLE": "plans",
+    "PROFILE_TITLE": "profile",
+    "ACCOUNT_SETTINGS": "account settings"
+  },
+  "AUTH": {
+    "TITLE": "authorization",
+    "LOGIN_PLACEHOLDER": "login",
+    "PASSWORD_PLACEHOLDER": "password",
+    "SUBMIT": "login"
+  },
+  "MAIN": {
+    "TITLE": "let’s get it started!",
+    "DESCRIPTION": "fill out a profile, create a restaurant menu and publish it ",
+    "PROFILE_TITLE": "title",
+    "STEP_ONE": "1",
+    "PROFILE_DESCRIPTION": "complete a restaurant profile",
+    "PROFILE_COMPLETE": "complete",
+    "MENU_TITLE": "create menu",
+    "STEP_TWO": "2"
+  },
+  "PROFILE": {
+    "TITLE": "your restaurant",
+    "COVER_TITLE": "upload cover",
+    "COVER_HINT": "jpeg less than 3 mb",
+    "LOGO_TITLE": "upload logo",
+    "LOGO_HINT": "jpeg 192×192 px",
+    "NAME_PLACEHOLDER": "name",
+    "NICKNAME_PLACEHOLDER": "nickname",
+    "ADDRESS_PLACEHOLDER": "address",
+    "DESCRIPTION_PLACEHOLDER": "description",
+    "CATEGORY_PLACEHOLDER": "category",
+    "CHECK_PLACEHOLDER": "avg. check",
+    "CHECK_MINIFIED_PLACEHOLDER": "avg. check, from",
+    "TO_PLACEHOLDER": "to",
+    "PHONE_PLACEHOLDER": "phone",
+    "EMAIL_PLACEHOLDER": "e-mail",
+    "FACEBOOK_PLACEHOLDER": "facebook",
+    "INSTAGRAM_PLACEHOLDER": "instagram",
+    "SAVE_BUTTON": "save",
+    "SAVE_AND_CREATE_BUTTON": "save and create menu ",
+    "PREVIEW_BUTTON": "preview"
+  },
+  "MENU": {
+    "TITLE": "menu",
+    "EMPTY_DESCRIPTION": "add a new category ex.: drinks, hot meals, breakfast, lunch",
+    "PUBLISH_TITLE": "publish",
+    "ADD_CATEGORY_TITLE": "add category"
+  },
+  "ADD_CATEGORY": {
+    "TITLE": "add category",
+    "TITLE_PLACEHOLDER": "title",
+    "SAVE_BUTTON": "save",
+    "SAVE_AND_CREATE_BUTTON": "save and create new "
+  },
+  "CATEGORY": {
+    "EMPTY_DESCRIPTION": "add a new category ex.: drinks, hot meals, breakfast, lunch",
+    "ADD_CATEGORY_TITLE": "add category"
+  },
+  "PLANS": {
+    "TITLE": "plans",
+    "DESCRIPTION_PART_1": "choose the plan that best ",
+    "DESCRIPTION_PART_2": " suits your needs",
+    "EXTRA_PAYMENT_PART_1": "pay extra $",
+    "EXTRA_PAYMENT_PART_2": " and activate new plan in current month",
+    "PAYMENT_ACCEPT_TITLE": "we accept",
+    "PAYMENT_METHODS": " visa, mastercard, unionpay, usdt",
+    "CONTINUE_BUTTON": "continue"
+  },
+  "PLAN": {
+    "TITLE_CURRENT": "· current",
+    "TITLE": "plan",
+    "PERIOD": "per month",
+    "EXCEEDED_LIMITS": "you have exceeded the limits for this plan",
+    "NEXT_DATE": "next write-off date",
+    "BUTTON_SELECT": "select",
+    "BUTTON_SELECTED": "selected",
+    "PRO_FULL_TITLE": "professional",
+    "PRO_TITLE": "pro",
+    "PRO_BADGE_1": "200+ items",
+    "PRO_BADGE_2": "100+ photos",
+    "PRO_BADGE_3": "unlimited views",
+    "LIFE_FULL_TITLE": "life",
+    "LIFE_TITLE": "life",
+    "LIFE_BADGE_1": "50 items",
+    "LIFE_BADGE_2": "20 photos",
+    "LIFE_BADGE_3": "1 000 views"
+  },
+  "PUBLIC_MENU": {
+    "ABOUT_BUTTON": "about"
+  },
+  "PUBLIC_ABOUT": {
+    "BACKGROUND_ALT": "Background",
+    "LOGO_ALT": "Logo",
+    "TWITTER_ALT": "Twitter",
+    "INSTAGRAM_ALT": "Instagram",
+    "FACEBOOK_ALT": "Facebook",
+    "ADDRESS_PLACEHOLDER": "address",
+    "CHECK_PLACEHOLDER": "check",
+    "PHONE_PLACEHOLDER": "phone",
+    "EMAIL_PLACEHOLDER": "e-mail"
+  },
+  "PUBLIC_COURSE": {
+    "PHOTO_ALT": "Course",
+    "PROPERTY_COOKING_TIME": "cooking time",
+    "PROPERTY_ALLERGY_INGREDIENTS": "allergy ingredients"
+  }
+}

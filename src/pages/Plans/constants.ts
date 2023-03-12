@@ -15,16 +15,16 @@ export interface PlanInterface {
 export const PlansList: PlanInterface[] = [
     {
         type: PLAN_TYPE.PROFESSIONAL,
-        fullTitle: 'professional',
-        title: 'pro',
-        badges: ['200+ items', '100+ photos', 'unlimited views',],
+        fullTitle: 'PRO_FULL_TITLE',
+        title: 'PRO_TITLE',
+        badges: ['PRO_BADGE_1', 'PRO_BADGE_2', 'PRO_BADGE_3',],
         price: 50,
     },
     {
         type: PLAN_TYPE.LIFE,
-        fullTitle: 'life',
-        title: 'life',
-        badges: ['50 items', '20 photos', '1 000 views',],
+        fullTitle: 'LIFE_FULL_TITLE',
+        title: 'LIFE_TITLE',
+        badges: ['LIFE_BADGE_1', 'LIFE_BADGE_2', 'LIFE_BADGE_3',],
         price: 25,
         // disabled: true,
     },

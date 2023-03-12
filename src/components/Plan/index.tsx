@@ -3,8 +3,10 @@ import {GetModifiers} from "../../utils/classNames";
 import SelectButton from "../SelectButton";
 import {SELECT_BUTTON_TYPE} from "../SelectButton/constants";
 import {PLAN_TYPE, PlanInterface} from "../../pages/Plans/constants";
+import {useTranslation} from "react-i18next";
 
 const componentClass = 'plan';
+const keyPrefix = 'PLAN';
 
 export interface PlanProps {
     plan: PlanInterface;
@@ -27,6 +29,8 @@ function Plan(props: PlanProps) {
         price,
         disabled,
     } = plan;
+    const {t, i18n} = useTranslation([], {keyPrefix});
+    const tFixed = i18n.getFixedT(i18n.language);
     const TypeMods = {
         condition: type,
         value: type,
@@ -48,17 +52,17 @@ function Plan(props: PlanProps) {
             ])}
         >
             <div className={GetModifiers(componentClass, 'title')}>
-                {title} {paid && '· current'} plan
+                {t(title)} {paid && t('TITLE_CURRENT')} {t('TITLE')}
             </div>
             <div className={GetModifiers(componentClass, 'price-block')}>
                 <div className={GetModifiers(componentClass, 'currency')}>
-                    $
+                    {tFixed('COMMON.CURRENCY')}
                 </div>
                 <div className={GetModifiers(componentClass, 'price')}>
                     {price}
                 </div>
                 <div className={GetModifiers(componentClass, 'period')}>
-                    per month
+                    {t('PERIOD')}
                 </div>
             </div>
             <div className={GetModifiers(componentClass, 'badges')}>
@@ -69,10 +73,10 @@ function Plan(props: PlanProps) {
                             className={GetModifiers(componentClass, 'badge-block')}
                         >
                             <div className={GetModifiers(componentClass, 'tick')}>
-                                ✓
+                                {tFixed('COMMON.TICK')}
                             </div>
                             <div className={GetModifiers(componentClass, 'badge')}>
-                                {badge}
+                                {t(badge)}
                             </div>
                         </div>
                     )
@@ -81,10 +85,10 @@ function Plan(props: PlanProps) {
             <div className={GetModifiers(componentClass, 'footer')}>
                 {paid || disabled ? (
                     <div className={GetModifiers(componentClass, 'hint')}>
-                        {disabled && 'you have exceeded the limits for this plan'}
+                        {disabled && t('EXCEEDED_LIMITS')}
                         {paid && (
                             <>
-                                next write-off date
+                                {t('NEXT_DATE')}
                                 <div className={GetModifiers(componentClass, 'date')}>
                                     14 April 2023
                                 </div>
@@ -103,7 +107,7 @@ function Plan(props: PlanProps) {
                         onClick={(event) => onSelectPlan(event, type)}
                         selected={selected}
                     >
-                        {selected ? 'selected' : 'select'}
+                        {t(selected ? 'BUTTON_SELECTED' : 'BUTTON_SELECT')}
                     </SelectButton>
                 )}
             </div>

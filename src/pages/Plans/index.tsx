@@ -5,10 +5,13 @@ import Button from "../../components/Button";
 import {PLAN_TYPE, PlansList} from "./constants";
 import Plan from "../../components/Plan";
 import Header from "../../components/Header";
+import {useTranslation} from "react-i18next";
 
 const componentClass = 'plans';
+const keyPrefix = 'PLANS';
 
 function Plans() {
+    const {t} = useTranslation([], {keyPrefix});
     const [planType, setPlanType] = useState<PLAN_TYPE>();
     const [paidPlan, setPaidPlan] = useState<PLAN_TYPE>();
     const selectPlan = (event: MouseEvent<HTMLButtonElement>, type: PLAN_TYPE) => {
@@ -38,10 +41,10 @@ function Plans() {
                         (
                             <div>
                                 <div className={GetModifiers(componentClass, 'title')}>
-                                    plans
+                                    {t('TITLE')}
                                 </div>
                                 <div className={GetModifiers(componentClass, 'description')}>
-                                    choose the plan that best <br/> suits your needs
+                                    {t('DESCRIPTION_PART_1')} <br/> {t('DESCRIPTION_PART_2')}
                                 </div>
                             </div>
                         ),
@@ -76,17 +79,20 @@ function Plans() {
                             <div className={GetModifiers(componentClass, 'footer')}>
                                 {planType && (
                                     <div className={GetModifiers(componentClass, 'payment')}>
-                                        {!!upgradePrice && `pay extra $${upgradePrice}`}
+                                        {!!upgradePrice && `${t('EXTRA_PAYMENT_PART_1')}${upgradePrice}`}
                                     <span
                                         className={GetModifiers(componentClass, 'payment-title')}
                                     >
-                                        {upgradePrice ? ' and activate new plan in current month' : 'we accept'}
+                                        {t(upgradePrice
+                                            ? 'EXTRA_PAYMENT_PART_2'
+                                            : 'PAYMENT_ACCEPT_TITLE'
+                                        )}
                                     </span>
-                                        {!upgradePrice && ' visa, mastercard, unionpay, usdt'}
+                                        {!upgradePrice && t('PAYMENT_METHODS')}
                                     </div>
                                 )}
                                 <Button disabled={!planType}>
-                                    continue
+                                    {t('CONTINUE_BUTTON')}
                                 </Button>
                             </div>
                         ),

@@ -6,10 +6,14 @@ import FormSection from "../../components/FormSection";
 import {FORM_SECTION_ROW_TYPE} from "../../components/FormSection/constants";
 import Background from './background.png';
 import Logo from './logo.png';
+import {useTranslation} from "react-i18next";
 
 const componentClass = 'user-about';
+const keyPrefix = 'PUBLIC_ABOUT';
 
 function UserAbout() {
+    const { t } = useTranslation([], {keyPrefix});
+
     return (
         <div className={componentClass}>
             <div className={GetModifiers(componentClass, 'main')}>
@@ -17,7 +21,7 @@ function UserAbout() {
                     <div className={GetModifiers(componentClass, 'background')}>
                         <img
                             src={Background}
-                            alt='Background'
+                            alt={t('BACKGROUND_ALT')}
                             className={GetModifiers(componentClass, 'background-image')}
                         />
                     </div>
@@ -30,7 +34,7 @@ function UserAbout() {
                         }])}>
                             <img
                                 src={Logo}
-                                alt='Logo'
+                                alt={t('LOGO_ALT')}
                                 className={GetModifiers(componentClass, 'logo-image')}
                             />
                         </div>
@@ -47,7 +51,7 @@ function UserAbout() {
                                 <TapTarget key={item.value}>
                                     <a rel="noreferrer" target="_blank" href={item.link}
                                        className={GetModifiers(componentClass, 'social')}>
-                                        <img src={item.image} alt={item.value}/>
+                                        <img src={item.image} alt={t(item.alt)}/>
                                     </a>
                                 </TapTarget>
                             )
@@ -59,7 +63,7 @@ function UserAbout() {
                 {
                     type: FORM_SECTION_ROW_TYPE.INPUT,
                     props: {
-                        placeholder: 'address',
+                        placeholder: t('ADDRESS_PLACEHOLDER'),
                         value: 'Passatge de la Pau 1108002 Barcelona',
                         readonly: true,
                     },
@@ -67,7 +71,7 @@ function UserAbout() {
                 {
                     type: FORM_SECTION_ROW_TYPE.INPUT,
                     props: {
-                        placeholder: 'avg. check',
+                        placeholder: t('CHECK_PLACEHOLDER'),
                         value: '10−15 €',
                         readonly: true,
                     },
@@ -77,7 +81,7 @@ function UserAbout() {
                 {
                     type: FORM_SECTION_ROW_TYPE.INPUT,
                     props: {
-                        placeholder: 'phone',
+                        placeholder: t('PHONE_PLACEHOLDER'),
                         value: '932 808 171',
                         readonly: true,
                     },
@@ -85,7 +89,7 @@ function UserAbout() {
                 {
                     type: FORM_SECTION_ROW_TYPE.INPUT,
                     props: {
-                        placeholder: 'e-mail',
+                        placeholder: t('EMAIL_PLACEHOLDER'),
                         value: 'barcelonagotic@federalcafe.es',
                         readonly: true,
                     },

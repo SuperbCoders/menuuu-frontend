@@ -23,6 +23,7 @@ import Menu from "./pages/Menu";
 import AddCategory from "./pages/AddCategory";
 import Auth from "./pages/Auth";
 import Category from "./pages/Category";
+import './i18n';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
