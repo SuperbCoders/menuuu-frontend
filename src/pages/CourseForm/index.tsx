@@ -15,16 +15,20 @@ import TapTarget from "../../components/TapTarget";
 import LongArrowIcon from "../../components/Icons/LongArrowIcon";
 import {DIRECTION} from "../../constants/positions";
 import {useTranslation} from "react-i18next";
+import Input from "../../components/Input";
 
-const componentClass = 'add-category';
-const keyPrefix = 'ADD_CATEGORY';
+const componentClass = 'course-form';
+const keyPrefix = 'COURSE_FORM';
 
-function AddCategory() {
+function CourseForm() {
     const {t, i18n} = useTranslation([], {keyPrefix});
     const tFixed = i18n.getFixedT(i18n.language);
     const navigate = useNavigate();
 
     const [title, setTitle] = useState<string>('');
+    const [description, setDescription] = useState<string>('');
+    const [price, setPrice] = useState<string>('');
+    const [time, setTime] = useState<string>('');
 
     const disabled = useMemo<boolean>(() => {
         return !title;
@@ -54,18 +58,53 @@ function AddCategory() {
                     }
                 >
                     <div className={GetModifiers(componentClass, 'form')}>
-                        <FormSection rows={[
-                            {
-                                type: FORM_SECTION_ROW_TYPE.INPUT,
-                                props: {
-                                    placeholder: t('TITLE_PLACEHOLDER'),
-                                    value: title,
-                                    onChange: (event) => {
-                                        setTitle(event.target.value);
+                        <Input
+                            placeholder={t('TITLE_PLACEHOLDER')}
+                            value={title}
+                            onChange={(event) => {
+                                setTitle(event.target.value);
+                            }}
+                        />
+                        <FormSection
+                            className={GetModifiers(componentClass, 'section')}
+                            rows={[
+                                {
+                                    type: FORM_SECTION_ROW_TYPE.INPUT,
+                                    props: {
+                                        placeholder: t('DESCRIPTION_PLACEHOLDER'),
+                                        value: description,
+                                        onChange: (event) => {
+                                            setDescription(event.target.value);
+                                        },
                                     },
                                 },
-                            },
-                        ]}/>
+                                {
+                                    type: FORM_SECTION_ROW_TYPE.BISECTED,
+                                    className: GetModifiers(componentClass, 'section-footer'),
+                                    children: [
+                                        {
+                                            type: FORM_SECTION_ROW_TYPE.INPUT,
+                                            props: {
+                                                placeholder: t('PRICE_PLACEHOLDER'),
+                                                value: price,
+                                                onChange: (event) => {
+                                                    setPrice(event.target.value);
+                                                },
+                                            },
+                                        },
+                                        {
+                                            type: FORM_SECTION_ROW_TYPE.INPUT,
+                                            props: {
+                                                placeholder: t('TIME_PLACEHOLDER'),
+                                                value: time,
+                                                onChange: (event) => {
+                                                    setTime(event.target.value);
+                                                },
+                                            },
+                                        },
+                                    ]
+                                },
+                            ]}/>
                         <Button
                             tapClassName={GetModifiers(componentClass, 'submit')}
                             disabled={disabled}
@@ -95,4 +134,4 @@ function AddCategory() {
     );
 }
 
-export default AddCategory;
+export default CourseForm;

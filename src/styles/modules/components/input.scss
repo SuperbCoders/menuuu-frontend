@@ -3,6 +3,7 @@
   padding: 0;
   border: 0;
   width: 100%;
+  background-color: transparent;
   @include font-subtitle;
 
   &_invalid {
@@ -10,6 +11,7 @@
   }
 
   &__wrapper {
+    position: relative;
     width: 100%;
   }
 
@@ -23,6 +25,7 @@
     color: $coaaal;
     background-color: $snooow;
     cursor: pointer;
+    overflow: hidden;
 
     &_focused, &:hover {
       border-color: $aaash;
@@ -57,8 +60,8 @@
     }
   }
 
-  &__wrapper {
-    position: relative;
+  &__ripple {
+    @include ripple;
   }
 
   &__placeholder {

@@ -15,7 +15,11 @@
   }
 
   &:first-child:last-child {
-    padding-bottom: 46px;
+    padding-bottom: 24px;
+  }
+
+  &:last-child {
+    padding-bottom: 24px;
   }
 
   &_disabled {

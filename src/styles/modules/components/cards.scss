@@ -1,5 +1,5 @@
 .cards {
-  height: $container-height;
+  min-height: $container-height;
   border-radius: $border-radius-large $border-radius-large 0 0;
   background-color: $tableee;
   display: flex;
@@ -7,6 +7,6 @@
 
   @include media-desktop {
     margin: $desktop-container-padding;
-    height: $desktop-container-height;
+    min-height: $desktop-container-height;
   }
 }

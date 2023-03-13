@@ -1,6 +1,11 @@
-import React, {ChangeEvent, FocusEvent, useEffect, useState, useRef, useMemo, CSSProperties} from 'react';
+import React, {
+    ChangeEvent, FocusEvent, MouseEvent,
+    useEffect, useState, useRef,
+    useMemo, CSSProperties,
+} from 'react';
 import {GetModifiers, ModifierInterface} from "../../utils/classNames";
 import {useTranslation} from "react-i18next";
+import {CreateRipple} from "../../utils/animations";
 
 const componentClass = 'input';
 
@@ -57,7 +62,7 @@ function Input(props: InputProps) {
     } = props;
     const { t } = useTranslation();
     const id: string = `${formName}-${name}`;
-    const wrapperRef = useRef<HTMLDivElement>();
+    const blockRef = useRef<HTMLDivElement>();
     const [passwordVisibility, setPasswordVisibility] = useState<boolean>(false);
     const [isDirty, setIsDirty] = useState<boolean>(false);
     const [isBlurred, setIsBlurred] = useState<boolean>(false);
@@ -88,7 +93,7 @@ function Input(props: InputProps) {
         onChangeFocus(false);
     };
 
-    const onFocusHandler = (): void => {
+    const onFocusHandler = (event: FocusEvent): void => {
         if (!readonly) {
             onChangeFocus(true);
         }
@@ -123,14 +128,23 @@ function Input(props: InputProps) {
         return !!(value || isFocused);
     }, [value, isFocused]);
 
+    const blockClickHandler = (event: MouseEvent<HTMLDivElement>) => {
+        ref.current && ref.current.focus();
+        CreateRipple(event, blockRef.current, GetModifiers(componentClass, 'ripple'));
+    }
+
     return (
-        <div className={GetModifiers(componentClass, 'wrapper')} ref={wrapperRef} style={style}>
+        <div
+            className={GetModifiers(componentClass, 'wrapper')}
+            style={style}
+        >
             {label && (
                 <label htmlFor={id} className={GetModifiers(componentClass, 'label')}>
                     {label}
                 </label>
             )}
             <div
+                ref={blockRef}
                 className={GetModifiers(componentClass, 'block', [
                     defaultInvalidModifier,
                     {
@@ -155,7 +169,7 @@ function Input(props: InputProps) {
                     },
                 ])}
                 style={blockStyle}
-                onClick={() => ref.current && ref.current.focus()}
+                onClick={blockClickHandler}
             >
                 <input
                     className={GetModifiers(componentClass, '', [

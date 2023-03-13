@@ -198,6 +198,7 @@ function Profile() {
                             ]}/>
                             <Button
                                 disabled={disabled}
+                                sticky={true}
                                 onClick={() => {
                                     navigate(ROUTE_ROOT)
                                 }}

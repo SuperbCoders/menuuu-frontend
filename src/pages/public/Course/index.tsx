@@ -6,11 +6,11 @@ import Grid from "../../../components/Grid";
 
 const Properties = [
     {
-        name: 'PROPERTY_COOKING_TIME',
+        name: 'PROPERTY_TIME',
         value: '5−7 minutes',
     },
     {
-        name: 'PROPERTY_ALLERGY_INGREDIENTS',
+        name: 'PROPERTY_ALLERGY',
         value: 'lactose, nuts',
     },
 ]

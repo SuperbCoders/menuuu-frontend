@@ -14,6 +14,7 @@ export const ROUTE_ADD_CATEGORY = 'add-category';
 export const ROUTE_PUBLICATION = 'publication';
 export const ROUTE_CATEGORIES = 'categories';
 export const GetCategoryRoute = (id: string | number) => `/${ROUTE_CATEGORIES}/${id}`;
+export const ROUTE_ADD_COURSE = 'add-course';
 export const ROUTE_PLANS = 'plans';
 
 export const ROUTE_PUBLIC = 'public';

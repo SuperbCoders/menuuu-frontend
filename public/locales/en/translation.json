@@ -69,6 +69,16 @@
     "EMPTY_DESCRIPTION": "add a new category ex.: drinks, hot meals, breakfast, lunch",
     "ADD_CATEGORY_TITLE": "add category"
   },
+  "COURSE_FORM": {
+    "TITLE": "add item",
+    "TITLE_PLACEHOLDER": "title",
+    "DESCRIPTION_PLACEHOLDER": "description",
+    "ALLERGY_LABEL": "select allergy ingredients",
+    "PRICE_PLACEHOLDER": "price",
+    "TIME_PLACEHOLDER": "cooking time",
+    "SAVE_BUTTON": "save",
+    "SAVE_AND_CREATE_BUTTON": "save and create new "
+  },
   "PLANS": {
     "TITLE": "plans",
     "DESCRIPTION_PART_1": "choose the plan that best ",
@@ -114,7 +124,7 @@
   },
   "PUBLIC_COURSE": {
     "PHOTO_ALT": "Course",
-    "PROPERTY_COOKING_TIME": "cooking time",
-    "PROPERTY_ALLERGY_INGREDIENTS": "allergy ingredients"
+    "PROPERTY_TIME": "cooking time",
+    "PROPERTY_ALLERGY": "allergy ingredients"
   }
 }

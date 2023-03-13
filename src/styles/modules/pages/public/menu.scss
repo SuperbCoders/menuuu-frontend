@@ -1,29 +1,32 @@
+$categories-height: 74px;
+
 .public-menu {
   background-color: $snooow;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 
+  &__categories {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 12px $grid-padding 18px $first-column-width + $grid-padding;
+    width: 100%;
+    background-color: $snooow;
+    display: flex;
+    gap: 8px;
+    overflow: auto;
+  }
+
   &__main {
-    padding: 10px $grid-padding 0 $grid-padding;
+    margin-top: $categories-height;
+    padding: 0 $grid-padding;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     gap: 8px;
 
     @include public-desktop-container;
-  }
-
-  &__categories {
-    margin-bottom: 16px;
-    display: flex;
-    gap: 8px;
-    overflow: auto;
-    @include skip-first-column;
-  }
-
-  &__category {
-
   }
 
   &__title {
@@ -80,7 +83,6 @@
   &__footer {
     position: sticky;
     bottom: 0;
-    margin-bottom: 20px;
     padding: 12px $grid-padding 16px;
     background-color: $snooow;
     align-items: center;

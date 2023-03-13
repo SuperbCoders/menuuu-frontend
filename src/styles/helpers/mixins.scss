@@ -42,3 +42,17 @@
     padding-right: $horizontal-padding;
   }
 }
+
+@mixin ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple $transition-duration-ripple linear;
+  background-color: $fruuuit-35;
+}
+
+@mixin sticky-submit {
+  position: sticky;
+  bottom: 24px;
+  left: 0;
+}

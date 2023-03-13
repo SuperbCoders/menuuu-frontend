@@ -84,7 +84,7 @@
     left: 0;
     top: $header-height;
     width: 100%;
-    height: $container-height;
+    min-height: $container-height;
     background-color: $coaaal;
     visibility: hidden;
     opacity: 0;

@@ -71,6 +71,7 @@ function Auth(props: AuthProps) {
                         <Button
                             tapClassName={GetModifiers(componentClass, 'submit')}
                             disabled={disabled}
+                            sticky={true}
                             onClick={submitHandler}
                         >
                             {t('AUTH.SUBMIT')}

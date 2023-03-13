@@ -10,7 +10,7 @@ import {
     ROUTE_COURSES,
     ROUTE_MENU, ROUTE_PLANS, ROUTE_PROFILE,
     ROUTE_ROOT,
-    ROUTE_PUBLIC,
+    ROUTE_PUBLIC, ROUTE_ADD_COURSE,
 } from "./constants/routes";
 import PublicMenu from "./pages/public/Menu";
 import PublicAbout from "./pages/public/About";
@@ -23,6 +23,7 @@ import AddCategory from "./pages/AddCategory";
 import Auth from "./pages/Auth";
 import Category from "./pages/Category";
 import './i18n';
+import CourseForm from "./pages/CourseForm";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -35,6 +36,8 @@ const router = createBrowserRouter(
             <Route path={`${ROUTE_CATEGORIES}/${PARAM_ID}`} element={<Category/>}>
                 <Route path={ROUTE_MENU} element={<Menu/>}/>
             </Route>
+            <Route path={ROUTE_ADD_COURSE} element={<CourseForm/>}/>
+
             <Route path={ROUTE_PLANS} element={<Plans/>}/>
             <Route path={`${ROUTE_PUBLIC}/${PARAM_RESTAURANT}`}>
                 <Route path={ROUTE_MENU} element={<PublicMenu/>}/>

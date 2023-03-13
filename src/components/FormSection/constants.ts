@@ -8,6 +8,7 @@ export enum FORM_SECTION_ROW_TYPE {
 
 export interface FormSectionRow {
     type: FORM_SECTION_ROW_TYPE;
+    className?: string;
     props?: InputProps;
     children?: FormSectionRow[];
 }

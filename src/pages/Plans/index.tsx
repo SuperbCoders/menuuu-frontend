@@ -33,7 +33,7 @@ function Plans() {
 
     return (
         <>
-            <Header />
+            <Header/>
             <div className={componentClass}>
                 <Grid
                     columns={[
@@ -50,27 +50,20 @@ function Plans() {
                         ),
                     ]}
                 />
-                <Grid
-                    columns={[
-                        false,
-                        (PlansList.map((plan) => {
-                            return (
-                                <Plan
-                                    key={plan.type}
-                                    plan={plan}
-                                    selected={plan.type === planType}
-                                    paid={plan.type === paidPlan}
-                                    onSelectPlan={selectPlan}
-                                />
-                            )
-                        })),
-                    ]}
-                    columnClassNames={[
-                        '',
-                        GetModifiers(componentClass, 'list'),
-                        '',
-                    ]}
-                />
+
+                <div className={GetModifiers(componentClass, 'list')}>
+                    {PlansList.map((plan) => {
+                        return (
+                            <Plan
+                                key={plan.type}
+                                plan={plan}
+                                selected={plan.type === planType}
+                                paid={plan.type === paidPlan}
+                                onSelectPlan={selectPlan}
+                            />
+                        )
+                    })}
+                </div>
                 <Grid
                     className={GetModifiers(componentClass, 'footer-grid')}
                     columns={[
@@ -80,9 +73,9 @@ function Plans() {
                                 {planType && (
                                     <div className={GetModifiers(componentClass, 'payment')}>
                                         {!!upgradePrice && `${t('EXTRA_PAYMENT_PART_1')}${upgradePrice}`}
-                                    <span
-                                        className={GetModifiers(componentClass, 'payment-title')}
-                                    >
+                                        <span
+                                            className={GetModifiers(componentClass, 'payment-title')}
+                                        >
                                         {t(upgradePrice
                                             ? 'EXTRA_PAYMENT_PART_2'
                                             : 'PAYMENT_ACCEPT_TITLE'
@@ -98,6 +91,7 @@ function Plans() {
                 <Button
                     disabled={!planType}
                     tapClassName={GetModifiers(componentClass, 'continue')}
+                    sticky={true}
                 >
                     {t('CONTINUE_BUTTON')}
                 </Button>

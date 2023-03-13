@@ -9,7 +9,7 @@ export interface LoginResponseData {
 const USERS_API_ROUTE = 'users';
 
 export const LOGIN = (username: string, password: string,) => {
-    return UnauthorizedApi.post<LoginResponseData>(`${USERS_API_ROUTE}/login`, {
+    return UnauthorizedApi.post<LoginResponseData>(`${USERS_API_ROUTE}/login/`, {
         username,
         password,
     });

@@ -9,11 +9,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  @include font-title;
+  color: $coaaal;
   cursor: pointer;
   transition: background-color $transition-duration linear,
   transform $transition-duration linear,
   outline $transition-duration linear;
+  @include font-title;
 
   &:hover, &:focus {
     &:not(:disabled) {
@@ -67,8 +68,6 @@
   }
 
   &:disabled {
-    background-color: $snooow-50;
-    color: $aaash-50;
     cursor: not-allowed;
   }
 }

@@ -11,6 +11,7 @@ export interface ButtonProps {
     tapClassName?: string;
     width?: string;
     disabled?: boolean;
+    sticky?: boolean;
     type?: BUTTON_TYPE;
     opacity?: BUTTON_OPACITY;
     colorTheme?: COLOR_NAME;
@@ -24,6 +25,7 @@ function Button(props: ButtonProps) {
         tapClassName = '',
         width = '',
         disabled,
+        sticky,
         type,
         opacity,
         colorTheme,
@@ -36,6 +38,7 @@ function Button(props: ButtonProps) {
             style={{
                 display: width === 'auto' && 'inline-flex',
             }}
+            sticky={sticky}
             className={tapClassName}
             onClick={onClick}
         >

@@ -1,9 +1,11 @@
 import React, {useRef, MouseEvent, Ref, ReactNode, CSSProperties} from 'react';
+import {GetModifiers} from "../../utils/classNames";
 
 const componentClass = 'tap-target';
 
 export interface TapTargetProps {
     className?: string;
+    sticky?: boolean;
     style?: CSSProperties;
     children?: ReactNode;
     onClick?: (event: MouseEvent<HTMLDivElement>) => void;
@@ -12,6 +14,7 @@ export interface TapTargetProps {
 function TapTarget(props: TapTargetProps) {
     const {
         className = '',
+        sticky,
         style,
         children,
         onClick,
@@ -33,7 +36,12 @@ function TapTarget(props: TapTargetProps) {
         <div
             style={style}
             ref={ref}
-            className={componentClass + ` ${className}`}
+            className={GetModifiers(componentClass, '', [
+                {
+                    condition: sticky,
+                    value: 'sticky',
+                },
+            ]) + ` ${className}`}
             onClick={clickHandler}
         >
             {children}

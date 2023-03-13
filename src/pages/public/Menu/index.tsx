@@ -77,25 +77,25 @@ function PublicMenu() {
 
     return (
         <div className={componentClass}>
+            <div className={GetModifiers(componentClass, 'categories')}>
+                {Categories.map((item) => {
+                    const {
+                        name,
+                        value,
+                    } = item;
+                    return (
+                        <SelectButton
+                            key={value}
+                            selected={categories.includes(value)}
+                            onClick={(event) => categoryClickHandler(event, value)}
+                        >
+                            {name}
+                        </SelectButton>
+                    )
+                })}
+            </div>
             <div className={GetModifiers(componentClass, 'main')}>
-                <div className={GetModifiers(componentClass, 'categories')}>
-                    {Categories.map((item) => {
-                        const {
-                            name,
-                            value,
-                        } = item;
-                        return (
-                            <SelectButton
-                                key={value}
-                                selected={categories.includes(value)}
-                                onClick={(event) => categoryClickHandler(event, value)}
-                            >
-                                {name}
-                            </SelectButton>
-                        )
-                    })}
-                </div>
-                <div className={GetModifiers(componentClass, 'category')}>
+                <div>
                     <div className={GetModifiers(componentClass, 'title')}>
                         drinks
                     </div>
