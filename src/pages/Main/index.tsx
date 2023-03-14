@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useMemo} from 'react';
 import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import {GetModifiers} from "../../utils/classNames";
@@ -10,14 +10,34 @@ import Cards from "../../components/Cards";
 import {ROUTE_PROFILE} from "../../constants/routes";
 import {CreateAbsolutePath} from "../../utils/routes";
 import Grid from "../../components/Grid";
+import {getMyRestaurantsRequestedAction, loginRequestedAction, LoginRequestedPayload} from "../../store/users/actions";
+import {connect} from "react-redux";
+import {RestaurantInterface} from "../../api/interface";
 
 const componentClass = 'main';
 const keyPrefix = 'MAIN';
 
-function Main() {
+interface MainProps {
+    restaurants: RestaurantInterface[];
+    getRestaurants: () => void;
+}
+
+function Main(props: MainProps) {
+    const {
+        restaurants,
+        getRestaurants,
+    } = props;
     const navigate = useNavigate();
-    const { t, i18n } = useTranslation([], { keyPrefix });
+    const {t, i18n} = useTranslation([], {keyPrefix});
     const tFixed = i18n.getFixedT(i18n.language);
+
+    useEffect(() => {
+        getRestaurants();
+    }, [])
+
+    const profileCompleted = useMemo<boolean>(() => {
+        return !!restaurants.length;
+    }, [restaurants])
 
     return (
         <div className={componentClass}>
@@ -42,35 +62,37 @@ function Main() {
                     />
                 </Card>
                 <Card
-                    colorTheme={COLOR_NAME.SNOW}
+                    colorTheme={!profileCompleted && COLOR_NAME.SNOW}
                     title={t('PROFILE_TITLE')}
                     icon={
                         <div className={GetModifiers(componentClass, 'step')}>
-                            {t('STEP_ONE')}
+                            {profileCompleted ? tFixed('COMMON.TICK') : t('STEP_ONE')}
                         </div>
                     }
                 >
-                    <Grid
-                        columns={[
-                            false,
-                            (
-                                <div>
-                                    <div className={GetModifiers(componentClass, 'profile-description')}>
-                                        {t('PROFILE_DESCRIPTION')}
+                    {!profileCompleted && (
+                        <Grid
+                            columns={[
+                                false,
+                                (
+                                    <div>
+                                        <div className={GetModifiers(componentClass, 'profile-description')}>
+                                            {t('PROFILE_DESCRIPTION')}
+                                        </div>
+                                        <Button
+                                            width='auto'
+                                            colorTheme={COLOR_NAME.COAL}
+                                            onClick={() => {
+                                                navigate(CreateAbsolutePath(ROUTE_PROFILE))
+                                            }}
+                                        >
+                                            {t('PROFILE_COMPLETE')}
+                                        </Button>
                                     </div>
-                                    <Button
-                                        width='auto'
-                                        colorTheme={COLOR_NAME.COAL}
-                                        onClick={() => {
-                                            navigate(CreateAbsolutePath(ROUTE_PROFILE))
-                                        }}
-                                    >
-                                        {t('PROFILE_COMPLETE')}
-                                    </Button>
-                                </div>
-                            ),
-                        ]}
-                    />
+                                ),
+                            ]}
+                        />
+                    )}
                 </Card>
                 <Card
                     colorTheme={COLOR_NAME.SNOW}
@@ -91,4 +113,18 @@ function Main() {
     );
 }
 
-export default Main;
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getRestaurants: () => dispatch(getMyRestaurantsRequestedAction()),
+    }
+};
+
+const mapStateToProps = (state) => {
+    console.log(state);
+    return {
+        restaurants: state.users.restaurants,
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

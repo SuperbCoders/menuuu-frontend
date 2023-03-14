@@ -1,14 +1,16 @@
 import {EmptyObjectType} from "../../interfaces/default";
+import {RestaurantInterface} from "../../api/interface";
 
 export const ACTION_LOGIN = 'ACTION_LOGIN';
 
 export interface LoginPayload {
   token: string;
+  user: number;
 }
 
-export const loginAction = (data: LoginPayload) => ({
+export const loginAction = (payload: LoginPayload) => ({
   type: ACTION_LOGIN,
-  payload: data,
+  payload,
 });
 
 export const ACTION_LOGOUT: string = 'ACTION_LOGOUT';
@@ -24,7 +26,20 @@ export interface LoginRequestedPayload {
   password: string;
 }
 
-export const LoginRequestedAction = (data: EmptyObjectType<LoginRequestedPayload>) => ({
+export const loginRequestedAction = (payload: EmptyObjectType<LoginRequestedPayload>) => ({
   type: ACTION_LOGIN_REQUESTED,
-  payload: data,
+  payload,
+});
+
+export const ACTION_GET_MY_RESTAURANTS_REQUESTED = 'ACTION_GET_MY_RESTAURANTS_REQUESTED';
+
+export const getMyRestaurantsRequestedAction = () => ({
+  type: ACTION_GET_MY_RESTAURANTS_REQUESTED,
+});
+
+export const ACTION_SET_USER_RESTAURANTS = 'ACTION_SET_USER_RESTAURANTS';
+
+export const setUserRestaurantsAction = (payload: RestaurantInterface[]) => ({
+  type: ACTION_SET_USER_RESTAURANTS,
+  payload,
 });

@@ -1,0 +1,62 @@
+.dialog-menu {
+  position: fixed;
+  left: 0;
+  bottom: -100%;
+  padding: 30px $grid-padding 42px;
+  width: 100%;
+  border-radius: $border-radius-large $border-radius-large 0 0;
+  background-color: $coaaal;
+  transition: bottom $transition-duration-average linear;
+  cursor: auto;
+
+  @include media-desktop {
+    padding: $desktop-container-padding;
+  }
+
+  &_expanded {
+    bottom: 0;
+  }
+
+  &__wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: $coaaal-50;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility $transition-duration-average 0s linear,
+    opacity $transition-duration-average linear;
+    cursor: pointer;
+
+    &_visible {
+      visibility: visible;
+      opacity: 1;
+      transition: visibility 0s linear,
+      opacity $transition-duration-average linear;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__item {
+    color: $snooow;
+
+    &:after {
+      content: none;
+    }
+  }
+
+  &__description {
+    margin-top: 8px;
+    display: block;
+    color: $aaash;
+    @include font-caption;
+  }
+}

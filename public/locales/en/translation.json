@@ -7,7 +7,10 @@
     "ARROW_RIGHT": "→"
   },
   "COMPONENTS": {
-    "FILE_INPUT_PREVIEW_ALT": "Preview"
+    "FILE_INPUT_PREVIEW_ALT": "Preview",
+    "FILE_INPUT_DIALOG_REPLACE": "replace",
+    "FILE_INPUT_DIALOG_DELETE": "delete",
+    "FILE_INPUT_UPLOAD": "upload"
   },
   "HEADER": {
     "MENU_TITLE": "menu",
@@ -33,9 +36,9 @@
   },
   "PROFILE": {
     "TITLE": "your restaurant",
-    "COVER_TITLE": "upload cover",
+    "COVER_TITLE": "cover",
     "COVER_HINT": "jpeg less than 3 mb",
-    "LOGO_TITLE": "upload logo",
+    "LOGO_TITLE": "logo",
     "LOGO_HINT": "jpeg 192×192 px",
     "NAME_PLACEHOLDER": "name",
     "NICKNAME_PLACEHOLDER": "nickname",
@@ -57,7 +60,11 @@
     "TITLE": "menu",
     "EMPTY_DESCRIPTION": "add a new category ex.: drinks, hot meals, breakfast, lunch",
     "PUBLISH_TITLE": "publish",
-    "ADD_CATEGORY_TITLE": "add category"
+    "ADD_CATEGORY_TITLE": "add category",
+    "DIALOG_QR_CODE_TITLE": "qr-code",
+    "DIALOG_PREVIEW_TITLE": "preview",
+    "DIALOG_EDIT_LIST_TITLE": "edit list",
+    "DIALOG_UNPUBLISH_TITLE": "unpublish"
   },
   "ADD_CATEGORY": {
     "TITLE": "add category",

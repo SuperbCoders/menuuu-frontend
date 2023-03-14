@@ -15,6 +15,8 @@ import Button from "../../components/Button";
 import DotsIcon from "../../components/Icons/DotsIcon";
 import {BUTTON_OPACITY, BUTTON_TYPE} from "../../components/Button/constants";
 import {useTranslation} from "react-i18next";
+import DialogMenu from "../../components/DialogMenu";
+import {MenuDialogItems} from "./constants";
 
 const CategoriesMock = [
     {
@@ -50,10 +52,18 @@ function Menu() {
     const {t} = useTranslation([], {keyPrefix});
     const navigate = useNavigate();
     const [categories, setCategories] = useState<any>(CategoriesMock);
+    const [moreVisibility, setMoreVisibility] = useState<boolean>(false);
     const isEmpty = !categories.length;
 
     return (
         <div className={componentClass}>
+            <DialogMenu
+                visibility={moreVisibility}
+                items={MenuDialogItems}
+                onClose={() => {
+                    setMoreVisibility(false);
+                }}
+            />
             <Header/>
             <Cards>
                 <Card
@@ -64,6 +74,7 @@ function Menu() {
                             className={GetModifiers(componentClass, 'more')}
                             type={BUTTON_TYPE.SMALL}
                             opacity={BUTTON_OPACITY.HALF}
+                            onClick={() => setMoreVisibility(true)}
                         >
                             <DotsIcon/>
                         </Button>

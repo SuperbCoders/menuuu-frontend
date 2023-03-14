@@ -8,7 +8,7 @@ import FormSection from "../../components/FormSection";
 import {FORM_SECTION_ROW_TYPE} from "../../components/FormSection/constants";
 import Button from "../../components/Button";
 import {connect} from "react-redux";
-import {LoginRequestedAction, LoginRequestedPayload} from "../../store/users/actions";
+import {loginRequestedAction, LoginRequestedPayload} from "../../store/users/actions";
 import {useTranslation} from "react-i18next";
 
 const componentClass = 'auth';
@@ -86,13 +86,13 @@ function Auth(props: AuthProps) {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        loginRequestedAction: (payload) => dispatch(LoginRequestedAction(payload)),
+        loginRequestedAction: (payload) => dispatch(loginRequestedAction(payload)),
     }
 };
 
 const mapStateToProps = (state) => {
     return {
-        token: state.users.token
+        token: state.users.token,
     }
 };
 

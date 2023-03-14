@@ -1,17 +1,19 @@
 import React, {useState} from 'react';
+import {useNavigate} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 import {GetModifiers} from "../../utils/classNames";
 import Grid from "../Grid";
 import LinkButton from "../LinkButton";
 import {SIZE} from "../../constants/sizes";
 import {HeaderBurgerLines, HeaderNavigationItems} from "./constants";
-import {ROUTE_SETTINGS} from "../../constants/routes";
+import {ROUTE_ROOT, ROUTE_SETTINGS} from "../../constants/routes";
 import LogoIcon from "../Icons/LogoIcon";
-import {useTranslation} from "react-i18next";
 
 const componentClass = 'header';
 const keyPrefix = 'HEADER';
 
 function Header() {
+    const navigate = useNavigate();
     const { t, i18n } = useTranslation([], {keyPrefix});
     const tFixed = i18n.getFixedT(i18n.language);
     const [menuVisibility, setMenuVisibility] = useState<boolean>(false);
@@ -26,10 +28,15 @@ function Header() {
                 columns={[
                     false,
                     (
-                        <div className={GetModifiers(componentClass, 'logo', [{
+                        <div
+                            className={GetModifiers(componentClass, 'logo', [{
                             condition: menuVisibility,
                             value: 'active',
-                        }])}>
+                        }])}
+                            onClick={() => {
+                                navigate(ROUTE_ROOT);
+                            }}
+                        >
                             <LogoIcon />
                         </div>
                     ),

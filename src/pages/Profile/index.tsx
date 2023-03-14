@@ -14,6 +14,10 @@ import FileInput from "../../components/FileInput";
 import CameraIcon from "../../components/Icons/CameraIcon";
 import LongArrowIcon from "../../components/Icons/LongArrowIcon";
 import {useTranslation} from "react-i18next";
+import DialogMenu from "../../components/DialogMenu";
+import {MenuDialogItems} from "../Menu/constants";
+import {ProfileCoverDialogItems} from "./constants";
+import {DialogMenuItemInterface} from "../../components/DialogMenu/constants";
 
 const componentClass = 'profile';
 const formName = 'profile';
@@ -24,6 +28,11 @@ function Profile() {
     const {t, i18n} = useTranslation([], {keyPrefix});
     const tFixed = i18n.getFixedT(i18n.language);
 
+    const [dialogVisibility, setDialogVisibility] = useState<boolean>(true);
+    const [dialogItems, setDialogItems] = useState<DialogMenuItemInterface[]>(ProfileCoverDialogItems);
+
+    const [cover, setCover] = useState<File>();
+    const [logo, setLogo] = useState<File>();
     const [name, setName] = useState<string>('');
     const [nickname, setNickname] = useState<string>('');
     const [address, setAddress] = useState<string>('');
@@ -45,11 +54,22 @@ function Profile() {
     ]);
 
     const onChangeCover = (file: File): void => {
+        setCover(file);
+    };
 
+    const onChangeLogo = (file: File): void => {
+        setLogo(file);
     };
 
     return (
         <div className={componentClass}>
+            {/*<DialogMenu*/}
+            {/*    visibility={dialogVisibility}*/}
+            {/*    items={dialogItems}*/}
+            {/*    onClose={() => {*/}
+            {/*        setDialogVisibility(false);*/}
+            {/*    }}*/}
+            {/*/>*/}
             <Header/>
             <Cards>
                 <Card
@@ -63,6 +83,7 @@ function Profile() {
                                 title={t('COVER_TITLE')}
                                 hint={t('COVER_HINT')}
                                 icon={<CameraIcon/>}
+                                file={cover}
                                 onChange={onChangeCover}
                             />
                             <FileInput
@@ -72,7 +93,8 @@ function Profile() {
                                 hint={t('LOGO_HINT')}
                                 className={GetModifiers(componentClass, 'logo')}
                                 icon={<LongArrowIcon/>}
-                                onChange={onChangeCover}
+                                file={logo}
+                                onChange={onChangeLogo}
                             />
                         </div>
                         <div className={GetModifiers(componentClass, 'content')}>

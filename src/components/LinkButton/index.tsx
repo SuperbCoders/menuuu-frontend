@@ -8,7 +8,7 @@ import {CreateAbsolutePath} from "../../utils/routes";
 const componentClass = 'link-button';
 
 export interface LinkButtonProps {
-    to: string;
+    to?: string;
     className?: string;
     tapClassName?: string
     disabled?: boolean;
@@ -34,7 +34,7 @@ function LinkButton(props: LinkButtonProps) {
             onClick={onClick}
         >
             <Link
-                to={disabled ? '#' : CreateAbsolutePath(to)}
+                to={(onClick || disabled) ? '#' : CreateAbsolutePath(to)}
                 className={GetModifiers(componentClass, '', [
                     {
                         condition: size,

@@ -10,6 +10,7 @@ export const ROUTE_REST = '*';
 export const ROUTE_PROFILE = 'profile';
 export const ROUTE_PREVIEW = 'preview';
 export const ROUTE_MENU = 'menu';
+export const ROUTE_MENU_LIST = 'menu-list';
 export const ROUTE_ADD_CATEGORY = 'add-category';
 export const ROUTE_PUBLICATION = 'publication';
 export const ROUTE_CATEGORIES = 'categories';

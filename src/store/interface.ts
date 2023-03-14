@@ -1,4 +1,4 @@
-export interface DefaultAction<PayloadType> {
+export interface DefaultAction<PayloadType = {}> {
     type: string;
     payload?: PayloadType;
 }

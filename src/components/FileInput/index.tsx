@@ -1,4 +1,4 @@
-import React, {DragEvent, ReactNode, SyntheticEvent, useEffect, useRef, useState,} from 'react';
+import React, {DragEvent, ReactNode, SyntheticEvent, useEffect, useMemo, useRef, useState,} from 'react';
 import {
     DefaultAllowedImageTypes,
 } from "../../constants/files";
@@ -8,6 +8,8 @@ import {
 import {GetModifiers} from "../../utils/classNames";
 import CameraIcon from "../Icons/CameraIcon";
 import {useTranslation} from "react-i18next";
+import DialogMenu from "../DialogMenu";
+import {DialogMenuItemInterface} from "../DialogMenu/constants";
 
 const componentClass = 'file-input';
 
@@ -43,7 +45,28 @@ function FileInput(props: FileInputProps) {
     const blockRef = useRef<HTMLDivElement>();
     const inputRef = useRef<HTMLInputElement>();
     const [preview, setPreview] = useState<string>('');
+    const [dialogVisibility, setDialogVisibility] = useState<boolean>(false);
     const [file, setFile] = useState<File>();
+
+    const clickInput = () => {
+        inputRef.current.click();
+    }
+
+    const dialogItems = useMemo<DialogMenuItemInterface[]>(() => {
+        return [
+            {
+                title: `${t('COMPONENTS.FILE_INPUT_DIALOG_REPLACE')} ${title}`,
+                description: hint,
+                onClick: clickInput,
+            },
+            {
+                title: t('COMPONENTS.FILE_INPUT_DIALOG_DELETE'),
+                onClick: () => {
+                    onChangeFiles([]);
+                },
+            },
+        ]
+    }, [name])
 
     const onChangeImage = (file: File, callback: (file: File) => void) => {
         const isValidSize: boolean = formatBytesToMb(file.size) <= maxSize;
@@ -105,10 +128,21 @@ function FileInput(props: FileInputProps) {
                 event.preventDefault();
             }}
             onClick={() => {
-                inputRef.current.click();
+                if (file) {
+                    setDialogVisibility(true);
+                } else {
+                    clickInput()
+                }
             }}
             ref={blockRef}
         >
+            <DialogMenu
+                visibility={dialogVisibility}
+                items={dialogItems}
+                onClose={() => {
+                    setDialogVisibility(false);
+                }}
+            />
             <input
                 ref={inputRef}
                 className="file-input"
@@ -143,7 +177,7 @@ function FileInput(props: FileInputProps) {
                         {icon}
                     </div>
                     <div className={GetModifiers(componentClass, 'title')}>
-                        {title}
+                        {`${t('COMPONENTS.FILE_INPUT_UPLOAD')} ${title}`}
                     </div>
                     <div className={GetModifiers(componentClass, 'hint')}>
                         {hint}

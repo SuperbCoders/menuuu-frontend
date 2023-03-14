@@ -20,7 +20,11 @@
 
   &__logo {
     width: 124px;
+    height: $tap-target-size;
+    display: flex;
+    align-items: center;
     transition: color $transition-duration-average linear;
+    cursor: pointer;
 
     &_active {
       color: $snooow;
@@ -32,8 +36,8 @@
     margin-left: auto;
     padding: 16px 4px;
     border: 0;
-    height: 44px;
-    width: 44px;
+    height: $tap-target-size;
+    width: $tap-target-size;
     background-color: transparent;
     display: flex;
     flex-direction: column;
